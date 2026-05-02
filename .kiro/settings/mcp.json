@@ -1,0 +1,21 @@
+{
+  "mcpServers": {
+    "fetch": {
+      "command": "uvx",
+      "args": [
+        "mcp-server-fetch"
+      ],
+      "env": {},
+      "disabled": true,
+      "autoApprove": []
+    },
+    "figma": {
+      "url": "https://mcp.figma.com/mcp",
+      "autoApprove": [
+        "get_design_context",
+        "get_screenshot",
+        "get_metadata"
+      ]
+    }
+  }
+}
