@@ -1,0 +1,116 @@
+/* LoadingScreen.css */
+
+.loading-screen {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0d0b14 0%, #1a1228 50%, #0f1a2e 100%);
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.loading-logo {
+  font-size: 28px;
+  font-weight: 600;
+  color: #c084fc;
+  letter-spacing: -0.5px;
+  margin-bottom: 48px;
+  opacity: 0.9;
+}
+
+.loading-spinner-wrap {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 40px;
+}
+
+.loading-spinner {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 3px solid rgba(192, 132, 252, 0.15);
+  border-top-color: #c084fc;
+  animation: spin 1s linear infinite;
+}
+
+.loading-spinner-inner {
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  border: 2px solid rgba(192, 132, 252, 0.08);
+  border-bottom-color: rgba(192, 132, 252, 0.5);
+  animation: spin 1.5s linear infinite reverse;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-message-wrap {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+
+.loading-message {
+  font-size: 16px;
+  color: rgba(243, 244, 246, 0.75);
+  text-align: center;
+  letter-spacing: 0.1px;
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.loading-dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.loading-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(192, 132, 252, 0.5);
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+.loading-dot:nth-child(2) { animation-delay: 0.2s; }
+.loading-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes pulse {
+  0%, 80%, 100% { transform: scale(0.7); opacity: 0.4; }
+  40% { transform: scale(1); opacity: 1; }
+}
+
+.loading-progress-bar {
+  width: 200px;
+  height: 2px;
+  background: rgba(192, 132, 252, 0.15);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 24px;
+}
+
+.loading-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #c084fc, #a855f7);
+  border-radius: 2px;
+  transition: width 0.5s ease;
+}

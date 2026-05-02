@@ -1,7 +1,7 @@
-import ReflectLanding from './ReflectLanding'
+import PulseApp from './stress-copilot/StressCopilotAllViews'
 
 function App() {
-  return <ReflectLanding />
+  return <PulseApp />
 }
 
 export default App

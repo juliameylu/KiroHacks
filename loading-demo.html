@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loading Screen Demo — Pulse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      height: 100%;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .loading-root {
+      --bg: #edf1ee;
+      --ink: #20231f;
+      --ink-soft: #5d665d;
+      --ink-quiet: #8a9288;
+      --line: rgba(32, 35, 31, 0.1);
+      --line-strong: rgba(32, 35, 31, 0.18);
+      --sage: #66795f;
+      --sage-2: #9fb38a;
+      --sage-soft: #dfe8d6;
+
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.2rem;
+      background:
+        linear-gradient(rgba(32, 35, 31, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(32, 35, 31, 0.04) 1px, transparent 1px),
+        var(--bg);
+      background-size: 72px 72px;
+      color: var(--ink);
+    }
+
+    /* ── Brand ── */
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .brand-mark {
+      width: 1.35rem;
+      height: 1.35rem;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 34% 28%, rgba(255,255,255,0.76), transparent 32%),
+        radial-gradient(circle at 54% 62%, #9fb38a, #66795f);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.5), 0 1px 3px rgba(32,35,31,0.18);
+      display: inline-block;
+    }
+
+    .brand-name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: 0;
+    }
+
+    /* ── Orb ── */
+    .orb-wrap {
+      position: relative;
+      width: 148px;
+      height: 148px;
+      display: grid;
+      place-items: center;
+    }
+
+    .orb-ring {
+      position: absolute;
+      border-radius: 999px;
+      border: 1px solid var(--line-strong);
+      animation: ring-breathe 2.4s ease-in-out infinite;
+    }
+
+    .orb-ring-1 { inset: 0; animation-delay: 0s; }
+    .orb-ring-2 { inset: -14px; border-color: var(--line); animation-delay: 0.25s; }
+    .orb-ring-3 { inset: -28px; border-color: rgba(32,35,31,0.05); animation-delay: 0.5s; }
+
+    @keyframes ring-breathe {
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50%       { opacity: 1;   transform: scale(1.035); }
+    }
+
+    .orb {
+      position: absolute;
+      inset: 14%;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 32% 26%, rgba(255,255,255,0.72), transparent 30%),
+        radial-gradient(circle at 54% 62%, var(--sage), var(--sage-soft));
+      box-shadow:
+        inset 0 -20px 44px rgba(32,35,31,0.12),
+        0 18px 44px rgba(102,121,95,0.22);
+      animation: orb-breathe 2.4s ease-in-out infinite;
+    }
+
+    @keyframes orb-breathe {
+      0%, 100% { transform: scale(0.96); box-shadow: inset 0 -20px 44px rgba(32,35,31,0.12), 0 14px 36px rgba(102,121,95,0.16); }
+      50%       { transform: scale(1.04); box-shadow: inset 0 -20px 44px rgba(32,35,31,0.12), 0 22px 52px rgba(102,121,95,0.28); }
+    }
+
+    /* ── Message ── */
+    .message-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.45rem;
+      text-align: center;
+    }
+
+    .message-label {
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--ink-quiet);
+    }
+
+    .message-text {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: 1.45rem;
+      color: var(--ink);
+      min-height: 1.8rem;
+    }
+
+    .message-text.animate {
+      animation: fade-up 0.35s ease forwards;
+    }
+
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(7px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Step dots ── */
+    .steps {
+      display: flex;
+      gap: 7px;
+      align-items: center;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--line-strong);
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .dot.active {
+      background: var(--sage);
+      transform: scale(1.4);
+    }
+
+    .dot.done {
+      background: var(--sage-2);
+    }
+
+    /* ── Demo restart note ── */
+    .demo-note {
+      position: fixed;
+      bottom: 1.2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.68rem;
+      color: var(--ink-quiet);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: rgba(237,241,238,0.85);
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid var(--line-strong);
+      backdrop-filter: blur(6px);
+    }
+  </style>
+</head>
+<body>
+  <div class="loading-root">
+    <div class="brand">
+      <span class="brand-mark"></span>
+      <span class="brand-name">Pulse</span>
+    </div>
+
+    <div class="orb-wrap">
+      <div class="orb-ring orb-ring-3"></div>
+      <div class="orb-ring orb-ring-2"></div>
+      <div class="orb-ring orb-ring-1"></div>
+      <div class="orb"></div>
+    </div>
+
+    <div class="message-block">
+      <span class="message-label">Analyzing</span>
+      <span class="message-text animate" id="msg">Syncing your body signals…</span>
+    </div>
+
+    <div class="steps" id="steps">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  </div>
+
+  <p class="demo-note">Loops for preview — will last ~3 s in the app</p>
+
+  <script>
+    const messages = [
+      "Syncing your body signals…",
+      "Reading calendar load…",
+      "Calculating your baseline…",
+      "Preparing your daily brief…",
+    ];
+
+    const msgEl = document.getElementById('msg');
+    const dots  = Array.from(document.querySelectorAll('.dot'));
+    let step = 0;
+
+    function advance() {
+      step = (step + 1) % messages.length;
+
+      msgEl.classList.remove('animate');
+      void msgEl.offsetWidth; // force reflow to re-trigger animation
+      msgEl.classList.add('animate');
+      msgEl.textContent = messages[step];
+
+      dots.forEach((d, i) => {
+        d.className = 'dot';
+        if (i < step)       d.classList.add('done');
+        else if (i === step) d.classList.add('active');
+      });
+    }
+
+    setInterval(advance, 850);
+  </script>
+</body>
+</html>

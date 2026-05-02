@@ -1,0 +1,19 @@
+{
+  "today": {
+    "sleep_hours": 5.0,
+    "hrv_ms": 22,
+    "resting_hr_bpm": 72,
+    "breathing_rate": 14.8,
+    "temperature_deviation_c": 0.3,
+    "readiness_score": 48
+  },
+  "history": [
+    { "date": "2026-04-25", "sleep_hours": 7.2, "hrv_ms": 45, "resting_hr_bpm": 58 },
+    { "date": "2026-04-26", "sleep_hours": 7.5, "hrv_ms": 48, "resting_hr_bpm": 57 },
+    { "date": "2026-04-27", "sleep_hours": 7.8, "hrv_ms": 52, "resting_hr_bpm": 56 },
+    { "date": "2026-04-28", "sleep_hours": 7.0, "hrv_ms": 44, "resting_hr_bpm": 59 },
+    { "date": "2026-04-29", "sleep_hours": 7.6, "hrv_ms": 50, "resting_hr_bpm": 57 },
+    { "date": "2026-04-30", "sleep_hours": 7.3, "hrv_ms": 46, "resting_hr_bpm": 58 },
+    { "date": "2026-05-01", "sleep_hours": 7.1, "hrv_ms": 43, "resting_hr_bpm": 60 }
+  ]
+}
