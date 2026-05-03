@@ -72,7 +72,11 @@ export function useAssessment(): {
 
   // Fetch on mount.
   useEffect(() => {
-    fetchAssessment();
+    const timeoutId = window.setTimeout(() => {
+      void fetchAssessment();
+    }, 0);
+
+    return () => window.clearTimeout(timeoutId);
   }, [fetchAssessment]);
 
   return { data, loading, error, refetch: fetchAssessment };

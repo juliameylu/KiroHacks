@@ -4,7 +4,7 @@
  */
 
 /** The predicted stress load category for the day. */
-export type StressLevel = "Elevated" | "Moderate" | "Calm";
+export type StressLevel = "High load" | "Steady load" | "Low load";
 
 /** A single calendar event with ISO 8601 start/end times. */
 export interface CalendarEvent {

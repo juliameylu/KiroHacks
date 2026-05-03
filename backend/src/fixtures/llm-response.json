@@ -1,5 +1,5 @@
 {
-  "stress_level": "Elevated",
+  "stress_level": "High load",
   "drivers": ["Sleep 2.5h below baseline", "HRV 26ms below 7-day avg", "Midterm exam at 11 AM"],
   "action_recommendation": "Block your 3:30–5:00 PM gap for a 20-minute walk outside — it's your only free window before the evening and the fastest way to bring cortisol down before you study.",
   "summary": "Your body is running on a significant sleep deficit and your HRV is well below baseline — both signs your nervous system is already under load before the midterm. Protect your 3:30 PM window."
