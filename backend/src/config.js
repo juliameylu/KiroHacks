@@ -4,9 +4,6 @@
  * Required vars (hard fail if missing, unless MOCK_MODE=true):
  *   OURA_PAT, GOOGLE_ACCESS_TOKEN, GOOGLE_REFRESH_TOKEN, ANTHROPIC_API_KEY
  *
- * Optional vars (warn but don't fail):
- *   TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_FROM_NUMBER, USER_PHONE
- *
  * Defaults:
  *   USER_NAME=Alex, PORT=3001,
  *   FRONTEND_ORIGIN=http://localhost:5173,
@@ -36,22 +33,6 @@ if (missing.length > 0 && !isMockMode) {
   console.warn(`[config] Mock mode — skipping missing vars: ${missing.join(', ')}`);
 }
 
-// ── Optional variables (warn if absent) ──────────────────────────────────────
-
-const OPTIONAL_VARS = [
-  'TWILIO_ACCOUNT_SID',
-  'TWILIO_AUTH_TOKEN',
-  'TWILIO_FROM_NUMBER',
-  'USER_PHONE',
-];
-
-const missingOptional = OPTIONAL_VARS.filter((v) => !process.env[v]);
-if (missingOptional.length > 0) {
-  console.warn(
-    `[config] Optional environment variables not set: ${missingOptional.join(', ')}`
-  );
-}
-
 // ── In-memory Google token store (updated on OAuth refresh) ──────────────────
 
 let googleTokens = {
@@ -73,24 +54,11 @@ function refreshGoogleToken({ accessToken, refreshToken }) {
   console.log('[config] Google tokens updated in memory.');
 }
 
-// ── Twilio availability flag ──────────────────────────────────────────────────
-
-const twilioEnabled = Boolean(
-  process.env.TWILIO_ACCOUNT_SID &&
-    process.env.TWILIO_AUTH_TOKEN &&
-    process.env.TWILIO_FROM_NUMBER
-);
-
-if (!twilioEnabled) {
-  console.warn('[config] Twilio credentials incomplete — SMS sending disabled.');
-}
-
 // ── Exported config object ────────────────────────────────────────────────────
 
 const config = {
   port: parseInt(process.env.PORT ?? '3001', 10),
   userName: process.env.USER_NAME ?? 'Alex',
-  userPhone: process.env.USER_PHONE ?? null,
 
   // Oura: Personal Access Token only — no OAuth, no refresh needed
   oura: {
@@ -111,13 +79,6 @@ const config = {
 
   anthropic: {
     apiKey: process.env.ANTHROPIC_API_KEY,
-  },
-
-  twilio: {
-    accountSid: process.env.TWILIO_ACCOUNT_SID ?? null,
-    authToken: process.env.TWILIO_AUTH_TOKEN ?? null,
-    fromNumber: process.env.TWILIO_FROM_NUMBER ?? null,
-    enabled: twilioEnabled,
   },
 
   app: {

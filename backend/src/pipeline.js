@@ -9,8 +9,7 @@
  *   5. Call LLM for stress assessment (with deterministic fallback)
  *   6. Assemble the full API response object
  *   7. Write to cache
- *   8. Optionally send SMS
- *   9. Return the result
+ *   8. Return the result
  *
  * The pipeline never throws. If a fresh run fails entirely, the last
  * successful cached result is preserved.
@@ -27,7 +26,6 @@ const ouraClient = require('./modules/ouraClient');
 const calendarClient = require('./modules/calendarClient');
 const { deriveSignals } = require('./modules/signals');
 const { assess } = require('./modules/llmClient');
-const { sendMorningSms } = require('./modules/smsClient');
 
 // ── Baseline computation ──────────────────────────────────────────────────────
 
@@ -121,7 +119,6 @@ function assembleResponse(biometrics, schedule, baselines, assessment, stale = f
  *   - Oura failure → uses fixture biometrics, continues
  *   - Calendar failure → uses fixture schedule, continues
  *   - LLM failure → uses deterministic fallback, continues
- *   - SMS failure → logged, does not affect result
  *   - Total failure → returns last cached result with stale: true
  *
  * Never throws.
@@ -173,17 +170,6 @@ async function runPipeline() {
     // ── Step 7: Cache result ──────────────────────────────────────────────────
     cache.set(result);
     console.log('[pipeline] Result cached successfully.');
-
-    // ── Step 8: Send SMS (optional, non-blocking) ─────────────────────────────
-    sendMorningSms(result).then((smsResult) => {
-      if (smsResult.ok) {
-        console.log(`[pipeline] SMS sent to ${smsResult.to}`);
-      } else {
-        console.log(`[pipeline] SMS skipped: ${smsResult.reason}`);
-      }
-    }).catch((err) => {
-      console.error('[pipeline] SMS error (non-fatal):', err.message);
-    });
 
     console.log('[pipeline] Pipeline run complete.');
     return result;

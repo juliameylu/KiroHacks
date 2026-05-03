@@ -5,6 +5,8 @@
  * and schedules the daily morning pipeline run via node-cron.
  */
 
+require("dotenv").config();
+
 'use strict';
 
 const express = require('express');
@@ -18,7 +20,6 @@ const { runPipeline } = require('./pipeline');
 
 const assessmentRoute = require('./routes/assessment');
 const refreshRoute = require('./routes/refresh');
-const sendSmsRoute = require('./routes/sendSms');
 const statusRoute = require('./routes/status');
 
 // ── App setup ─────────────────────────────────────────────────────────────────
@@ -54,7 +55,6 @@ app.get('/api/health', (req, res) => {
 
 app.use('/api', assessmentRoute);
 app.use('/api', refreshRoute);
-app.use('/api', sendSmsRoute);
 app.use('/api', statusRoute);
 
 // ── 404 fallback ──────────────────────────────────────────────────────────────
@@ -92,13 +92,11 @@ app.listen(PORT, () => {
   console.log(`\n🪞 Reflect backend running on http://localhost:${PORT}`);
   console.log(`   User: ${config.userName}`);
   console.log(`   Mock mode: ${config.mockMode}`);
-  console.log(`   Twilio SMS: ${config.twilio.enabled ? 'enabled' : 'disabled'}`);
   console.log(`   Frontend origin: ${config.app.frontendOrigin}`);
   console.log(`   Endpoints:`);
   console.log(`     GET  /api/health`);
   console.log(`     GET  /api/assessment`);
   console.log(`     POST /api/refresh`);
-  console.log(`     POST /api/send-sms`);
   console.log(`     GET  /api/status\n`);
 });
 

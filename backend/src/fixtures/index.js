@@ -9,5 +9,4 @@ module.exports = {
   getCalendarFixture: () => loadFixture('calendar'),
   getBaselineFixture: () => loadFixture('baseline'),
   getLlmResponseFixture: () => loadFixture('llm-response'),
-  getSmsPreviewFixture: () => loadFixture('sms-preview'),
 };

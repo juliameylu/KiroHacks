@@ -11,7 +11,6 @@
 
 const express = require('express');
 const cache = require('../cache');
-const config = require('../config');
 
 const router = express.Router();
 
@@ -21,7 +20,6 @@ const serviceStatus = {
   oura: true,
   google: true,
   llm: true,
-  sms: config.twilio.enabled,
 };
 
 router.get('/status', (req, res) => {
