@@ -611,6 +611,12 @@ function TopBar({ title }: { title: string }) {
   )
 }
 
+const driverDisplayLabel: Record<string, string> = {
+  'HRV': 'Body strain',
+  'Recovery gap': 'Recovery time',
+  'Recovery': 'Recovery space',
+}
+
 function TodayView({
   activity,
   state,
@@ -621,10 +627,11 @@ function TodayView({
   onStateChange: (state: StressState) => void
 }) {
   const copy = stateCopy[state]
+  const isCalm = state === 'steady'
 
   return (
-    <div className="view-stack">
-      <div className="state-tabs" role="tablist" aria-label="Stress state">
+    <div className="td-root" key={state}>
+      <div className="state-tabs td-tabs" role="tablist" aria-label="Stress state">
         {(Object.keys(stateCopy) as StressState[]).map((item) => (
           <button key={item} className={state === item ? 'active' : ''} type="button" onClick={() => onStateChange(item)}>
             {stateCopy[item].label}
@@ -632,34 +639,80 @@ function TodayView({
         ))}
       </div>
 
-      <section className="today-layout">
-        <div className="signal-card">
-          <div>
-            <span className="eyebrow">Body signal</span>
-            <h2>{copy.headline}</h2>
-            <p>{copy.summary}</p>
+      <section className="td-hero td-reveal">
+        <h2 className="td-headline">{copy.headline}</h2>
+        <p className="td-summary">{copy.summary}</p>
+      </section>
+
+      <div className={`td-action-card td-reveal${isCalm ? ' td-action-card--calm' : ''}`}>
+        <span className="eyebrow">{isCalm ? 'All clear' : 'Suggested reset'}</span>
+        <h3 className="td-action-title">{copy.action.title}</h3>
+        <p>{copy.action.detail}</p>
+        {!isCalm && (
+          <div className="td-action-btns">
+            <button type="button">{copy.action.cta}</button>
+            <button type="button">Not now</button>
           </div>
-          <SignalOrb state={state} score={copy.score} />
+        )}
+      </div>
+
+      <div className="td-body td-reveal">
+        <div className="td-drivers">
+          <span className="eyebrow">Why this matters</span>
+          {copy.drivers.map((driver) => (
+            <TdDriverItem key={driver.label} driver={driver} />
+          ))}
         </div>
-      </section>
+        <div className="td-calendar">
+          <span className="eyebrow">Your day</span>
+          <TdCalendarList state={state} />
+        </div>
+      </div>
 
-      <section className="dashboard-grid today-dashboard">
-        <Panel title="Top drivers" className="drivers-panel">
-          <div className="driver-list">
-            {copy.drivers.map((driver) => (
-              <DriverRow key={driver.label} driver={driver} />
-            ))}
-          </div>
-        </Panel>
+      <div className="td-activity td-reveal">
+        <span className="eyebrow">What Pulse did</span>
+        <ActivityList activity={activity} />
+      </div>
+    </div>
+  )
+}
 
-        <Panel title="Upcoming calendar">
-          <CalendarList />
-        </Panel>
+function TdDriverItem({
+  driver,
+}: {
+  driver: { label: string; detail: string; tone: 'good' | 'watch' | 'high' }
+}) {
+  const label = driverDisplayLabel[driver.label] ?? driver.label
+  return (
+    <div className="td-driver-item" data-tone={driver.tone}>
+      <span className="td-driver-dot" />
+      <span>
+        <strong>{label}</strong>
+        <small>{driver.detail}</small>
+      </span>
+    </div>
+  )
+}
 
-        <Panel title="Agent activity" className="activity-panel">
-          <ActivityList activity={activity} />
-        </Panel>
-      </section>
+function TdCalendarList({ state }: { state: StressState }) {
+  const highlight = state !== 'steady'
+  const items: Array<[string, string, string, boolean]> = [
+    ['11:00 AM', 'Design review', '45 min', false],
+    ['1:30 PM', 'Product sync', '30 min', false],
+    ['3:30 PM', highlight ? 'Suggested hold' : 'Open window', highlight ? 'Protected time' : 'Free block', highlight],
+    ['4:00 PM', 'Engineering sync', highlight ? 'Can move' : '30 min', false],
+  ]
+  return (
+    <div className="td-cal-list">
+      {items.map(([time, title, meta, hl]) => (
+        <div key={time} className={`td-cal-item${hl ? ' td-cal-item--highlight' : ''}`}>
+          <span className="td-cal-time">{time}</span>
+          <span className="td-cal-event">
+            <strong>{title}</strong>
+            <small>{meta}</small>
+          </span>
+        </div>
+      ))}
     </div>
   )
 }
