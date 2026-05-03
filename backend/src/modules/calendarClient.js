@@ -154,7 +154,7 @@ function buildFixtureResult() {
   const fixture = getCalendarFixture();
   const events = fixture.events ?? [];
   const free_slots = fixture.free_slots ?? [];
-  return { events, event_count: events.length, free_slots, highlighted_slot: free_slots[0] ?? null, source: 'mock' };
+  return { events, event_count: events.length, free_slots, highlighted_slot: fixture.highlighted_slot ?? free_slots[0] ?? null, source: 'mock' };
 }
 
 // ── Main export ───────────────────────────────────────────────────────────────

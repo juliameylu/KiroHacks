@@ -20,6 +20,7 @@ const assessmentRoute = require('./routes/assessment');
 const refreshRoute = require('./routes/refresh');
 const sendSmsRoute = require('./routes/sendSms');
 const statusRoute = require('./routes/status');
+const demoDataRoute = require('./routes/demoData');
 
 // ── App setup ─────────────────────────────────────────────────────────────────
 
@@ -56,6 +57,7 @@ app.use('/api', assessmentRoute);
 app.use('/api', refreshRoute);
 app.use('/api', sendSmsRoute);
 app.use('/api', statusRoute);
+app.use('/api', demoDataRoute);
 
 // ── 404 fallback ──────────────────────────────────────────────────────────────
 
@@ -99,7 +101,8 @@ app.listen(PORT, () => {
   console.log(`     GET  /api/assessment`);
   console.log(`     POST /api/refresh`);
   console.log(`     POST /api/send-sms`);
-  console.log(`     GET  /api/status\n`);
+  console.log(`     GET  /api/status`);
+  console.log(`     GET  /api/demo-data\n`);
 });
 
 module.exports = app;

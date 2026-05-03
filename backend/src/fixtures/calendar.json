@@ -1,11 +1,3329 @@
 {
+  "persona": {
+    "name": "James",
+    "timezone": "America/Los_Angeles",
+    "age": 21,
+    "profile": "college student balancing classes, club work, interviews, exercise, and social plans"
+  },
+  "demo_today": "2025-02-13",
+  "time_zone": "America/Los_Angeles",
+  "source_note": "Two-week mock dataset based on James calendar screenshot for Pulse hackathon demo.",
   "events": [
-    { "title": "Class", "start": "2026-05-02T09:00:00-07:00", "end": "2026-05-02T14:00:00-07:00" },
-    { "title": "Midterm Exam", "start": "2026-05-02T11:00:00-07:00", "end": "2026-05-02T12:30:00-07:00" },
-    { "title": "Study Group", "start": "2026-05-02T17:00:00-07:00", "end": "2026-05-02T18:30:00-07:00" }
+    {
+      "title": "Ali interview",
+      "start": "2025-02-13T09:15:00-08:00",
+      "end": "2025-02-13T10:00:00-08:00",
+      "type": "interview",
+      "google_event_id": "20250213-0915-30"
+    },
+    {
+      "title": "Ali interview",
+      "start": "2025-02-13T09:15:00-08:00",
+      "end": "2025-02-13T10:00:00-08:00",
+      "type": "interview",
+      "google_event_id": "20250213-0915-31"
+    },
+    {
+      "title": "meeting w professor",
+      "start": "2025-02-13T10:00:00-08:00",
+      "end": "2025-02-13T11:00:00-08:00",
+      "type": "meeting",
+      "google_event_id": "20250213-1000-32"
+    },
+    {
+      "title": "Work",
+      "start": "2025-02-13T11:00:00-08:00",
+      "end": "2025-02-13T14:00:00-08:00",
+      "type": "work",
+      "google_event_id": "20250213-1100-33"
+    },
+    {
+      "title": "mike",
+      "start": "2025-02-13T13:30:00-08:00",
+      "end": "2025-02-13T14:15:00-08:00",
+      "type": "meeting",
+      "google_event_id": "20250213-1330-34"
+    },
+    {
+      "title": "Hangout w/ Sofia",
+      "start": "2025-02-13T14:00:00-08:00",
+      "end": "2025-02-13T17:15:00-08:00",
+      "type": "social",
+      "google_event_id": "20250213-1400-35"
+    },
+    {
+      "title": "Paula <> Cal Poly Students",
+      "start": "2025-02-13T16:00:00-08:00",
+      "end": "2025-02-13T16:30:00-08:00",
+      "type": "meeting",
+      "google_event_id": "20250213-1600-36"
+    },
+    {
+      "title": "PT",
+      "start": "2025-02-13T18:00:00-08:00",
+      "end": "2025-02-13T19:00:00-08:00",
+      "type": "exercise",
+      "google_event_id": "20250213-1800-37"
+    },
+    {
+      "title": "IME 403",
+      "start": "2025-02-13T19:00:00-08:00",
+      "end": "2025-02-13T21:00:00-08:00",
+      "type": "class",
+      "google_event_id": "20250213-1900-38"
+    }
   ],
   "free_slots": [
-    { "start": "2026-05-02T15:30:00-07:00", "end": "2026-05-02T17:00:00-07:00" }
+    {
+      "start": "2025-02-13T07:00:00-08:00",
+      "end": "2025-02-13T09:15:00-08:00",
+      "minutes": 135
+    },
+    {
+      "start": "2025-02-13T17:15:00-08:00",
+      "end": "2025-02-13T18:00:00-08:00",
+      "minutes": 45
+    },
+    {
+      "start": "2025-02-13T21:00:00-08:00",
+      "end": "2025-02-13T22:00:00-08:00",
+      "minutes": 60
+    }
   ],
-  "highlighted_slot": { "start": "2026-05-02T15:30:00-07:00", "end": "2026-05-02T17:00:00-07:00" }
+  "highlighted_slot": {
+    "start": "2025-02-13T17:15:00-08:00",
+    "end": "2025-02-13T18:00:00-08:00",
+    "minutes": 45
+  },
+  "two_week_summary": [
+    {
+      "date": "2025-02-09",
+      "event_count": 4,
+      "high_stakes_count": 1,
+      "total_scheduled_minutes": 345,
+      "events": [
+        {
+          "title": "pickleball",
+          "start": "2025-02-09T10:00:00-08:00",
+          "end": "2025-02-09T12:00:00-08:00",
+          "type": "exercise",
+          "google_event_id": "20250209-1000-0"
+        },
+        {
+          "title": "Mex Food w/ Lauren Moro",
+          "start": "2025-02-09T13:00:00-08:00",
+          "end": "2025-02-09T13:45:00-08:00",
+          "type": "social",
+          "google_event_id": "20250209-1300-1"
+        },
+        {
+          "title": "MC",
+          "start": "2025-02-09T14:00:00-08:00",
+          "end": "2025-02-09T15:00:00-08:00",
+          "type": "meeting",
+          "google_event_id": "20250209-1400-2"
+        },
+        {
+          "title": "PRESENT in iter8 meeting",
+          "start": "2025-02-09T15:15:00-08:00",
+          "end": "2025-02-09T17:15:00-08:00",
+          "type": "meeting",
+          "google_event_id": "20250209-1515-3"
+        }
+      ]
+    },
+    {
+      "date": "2025-02-10",
+      "event_count": 7,
+      "high_stakes_count": 1,
+      "total_scheduled_minutes": 600,
+      "events": [
+        {
+          "title": "CSC 307",
+          "start": "2025-02-10T08:00:00-08:00",
+          "end": "2025-02-10T10:00:00-08:00",
+          "type": "class",
+          "google_event_id": "20250210-0800-4"
+        },
+        {
+          "title": "Seth <> Yuijun, Vidushi Coffee Chat",
+          "start": "2025-02-10T09:00:00-08:00",
+          "end": "2025-02-10T10:00:00-08:00",
+          "type": "meeting",
+          "google_event_id": "20250210-0900-5"
+        },
+        {
+          "title": "gym",
+          "start": "2025-02-10T10:00:00-08:00",
+          "end": "2025-02-10T11:30:00-08:00",
+          "type": "exercise",
+          "google_event_id": "20250210-1000-6"
+        },
+        {
+          "title": "Golf",
+          "start": "2025-02-10T12:00:00-08:00",
+          "end": "2025-02-10T14:00:00-08:00",
+          "type": "exercise",
+          "google_event_id": "20250210-1200-7"
+        },
+        {
+          "title": "Work",
+          "start": "2025-02-10T15:00:00-08:00",
+          "end": "2025-02-10T16:30:00-08:00",
+          "type": "work",
+          "google_event_id": "20250210-1500-8"
+        },
+        {
+          "title": "Hack4Impact Designers",
+          "start": "2025-02-10T17:00:00-08:00",
+          "end": "2025-02-10T18:00:00-08:00",
+          "type": "meeting",
+          "google_event_id": "20250210-1700-9"
+        },
+        {
+          "title": "plege meeting - & personal finance",
+          "start": "2025-02-10T20:00:00-08:00",
+          "end": "2025-02-10T21:00:00-08:00",
+          "type": "meeting",
+          "google_event_id": "20250210-2000-10"
+        }
+      ]
+    },
+    {
+      "date": "2025-02-11",
+      "event_count": 9,
+      "high_stakes_count": 1,
+      "total_scheduled_minutes": 715,
+      "events": [
+        {
+          "title": "Meeting",
+          "start": "2025-02-11T08:00:00-08:00",
+          "end": "2025-02-11T09:00:00-08:00",
+          "type": "meeting",
+          "google_event_id": "20250211-0800-11"
+        },
+        {
+          "title": "James <> Sol",
+          "start": "2025-02-11T09:00:00-08:00",
+          "end": "2025-02-11T10:00:00-08:00",
+          "type": "meeting",
+          "google_event_id": "20250211-0900-12"
+        },
+        {
+          "title": "James <> Soha",
+          "start": "2025-02-11T09:00:00-08:00",
+          "end": "2025-02-11T10:00:00-08:00",
+          "type": "meeting",
+          "google_event_id": "20250211-0900-13"
+        },
+        {
+          "title": "Work",
+          "start": "2025-02-11T10:00:00-08:00",
+          "end": "2025-02-11T13:00:00-08:00",
+          "type": "work",
+          "google_event_id": "20250211-1000-14"
+        },
+        {
+          "title": "jerry",
+          "start": "2025-02-11T14:15:00-08:00",
+          "end": "2025-02-11T14:45:00-08:00",
+          "type": "meeting",
+          "google_event_id": "20250211-1415-15"
+        },
+        {
+          "title": "bring baking supplies",
+          "start": "2025-02-11T14:35:00-08:00",
+          "end": "2025-02-11T15:00:00-08:00",
+          "type": "personal",
+          "google_event_id": "20250211-1435-16"
+        },
+        {
+          "title": "Date",
+          "start": "2025-02-11T15:00:00-08:00",
+          "end": "2025-02-11T17:00:00-08:00",
+          "type": "social",
+          "google_event_id": "20250211-1500-17"
+        },
+        {
+          "title": "crc",
+          "start": "2025-02-11T18:00:00-08:00",
+          "end": "2025-02-11T19:00:00-08:00",
+          "type": "exercise",
+          "google_event_id": "20250211-1800-18"
+        },
+        {
+          "title": "IME 403",
+          "start": "2025-02-11T19:00:00-08:00",
+          "end": "2025-02-11T21:00:00-08:00",
+          "type": "class",
+          "google_event_id": "20250211-1900-19"
+        }
+      ]
+    },
+    {
+      "date": "2025-02-12",
+      "event_count": 10,
+      "high_stakes_count": 3,
+      "total_scheduled_minutes": 735,
+      "events": [
+        {
+          "title": "CSC 307",
+          "start": "2025-02-12T08:00:00-08:00",
+          "end": "2025-02-12T10:00:00-08:00",
+          "type": "class",
+          "google_event_id": "20250212-0800-20"
+        },
+        {
+          "title": "SNP Expert Call",
+          "start": "2025-02-12T10:00:00-08:00",
+          "end": "2025-02-12T10:45:00-08:00",
+          "type": "meeting",
+          "google_event_id": "20250212-1000-21"
+        },
+        {
+          "title": "health appointment",
+          "start": "2025-02-12T11:00:00-08:00",
+          "end": "2025-02-12T12:00:00-08:00",
+          "type": "appointment",
+          "google_event_id": "20250212-1100-22"
+        },
+        {
+          "title": "301",
+          "start": "2025-02-12T11:30:00-08:00",
+          "end": "2025-02-12T13:00:00-08:00",
+          "type": "class",
+          "google_event_id": "20250212-1130-23"
+        },
+        {
+          "title": "BUS 490: O3-441",
+          "start": "2025-02-12T13:00:00-08:00",
+          "end": "2025-02-12T16:00:00-08:00",
+          "type": "class",
+          "google_event_id": "20250212-1300-24"
+        },
+        {
+          "title": "PurpleTie Client Check-in",
+          "start": "2025-02-12T13:45:00-08:00",
+          "end": "2025-02-12T14:15:00-08:00",
+          "type": "meeting",
+          "google_event_id": "20250212-1345-25"
+        },
+        {
+          "title": "Spokes Job Board with Mia",
+          "start": "2025-02-12T14:30:00-08:00",
+          "end": "2025-02-12T15:00:00-08:00",
+          "type": "meeting",
+          "google_event_id": "20250212-1430-26"
+        },
+        {
+          "title": "TLs & Devs Meeting",
+          "start": "2025-02-12T18:00:00-08:00",
+          "end": "2025-02-12T19:00:00-08:00",
+          "type": "meeting",
+          "google_event_id": "20250212-1800-27"
+        },
+        {
+          "title": "Mock Interview w/ Kalissa",
+          "start": "2025-02-12T19:00:00-08:00",
+          "end": "2025-02-12T20:00:00-08:00",
+          "type": "interview",
+          "google_event_id": "20250212-1900-28"
+        },
+        {
+          "title": "MC Engagement Working",
+          "start": "2025-02-12T20:00:00-08:00",
+          "end": "2025-02-12T21:00:00-08:00",
+          "type": "meeting",
+          "google_event_id": "20250212-2000-29"
+        }
+      ]
+    },
+    {
+      "date": "2025-02-13",
+      "event_count": 9,
+      "high_stakes_count": 3,
+      "total_scheduled_minutes": 780,
+      "events": [
+        {
+          "title": "Ali interview",
+          "start": "2025-02-13T09:15:00-08:00",
+          "end": "2025-02-13T10:00:00-08:00",
+          "type": "interview",
+          "google_event_id": "20250213-0915-30"
+        },
+        {
+          "title": "Ali interview",
+          "start": "2025-02-13T09:15:00-08:00",
+          "end": "2025-02-13T10:00:00-08:00",
+          "type": "interview",
+          "google_event_id": "20250213-0915-31"
+        },
+        {
+          "title": "meeting w professor",
+          "start": "2025-02-13T10:00:00-08:00",
+          "end": "2025-02-13T11:00:00-08:00",
+          "type": "meeting",
+          "google_event_id": "20250213-1000-32"
+        },
+        {
+          "title": "Work",
+          "start": "2025-02-13T11:00:00-08:00",
+          "end": "2025-02-13T14:00:00-08:00",
+          "type": "work",
+          "google_event_id": "20250213-1100-33"
+        },
+        {
+          "title": "mike",
+          "start": "2025-02-13T13:30:00-08:00",
+          "end": "2025-02-13T14:15:00-08:00",
+          "type": "meeting",
+          "google_event_id": "20250213-1330-34"
+        },
+        {
+          "title": "Hangout w/ Sofia",
+          "start": "2025-02-13T14:00:00-08:00",
+          "end": "2025-02-13T17:15:00-08:00",
+          "type": "social",
+          "google_event_id": "20250213-1400-35"
+        },
+        {
+          "title": "Paula <> Cal Poly Students",
+          "start": "2025-02-13T16:00:00-08:00",
+          "end": "2025-02-13T16:30:00-08:00",
+          "type": "meeting",
+          "google_event_id": "20250213-1600-36"
+        },
+        {
+          "title": "PT",
+          "start": "2025-02-13T18:00:00-08:00",
+          "end": "2025-02-13T19:00:00-08:00",
+          "type": "exercise",
+          "google_event_id": "20250213-1800-37"
+        },
+        {
+          "title": "IME 403",
+          "start": "2025-02-13T19:00:00-08:00",
+          "end": "2025-02-13T21:00:00-08:00",
+          "type": "class",
+          "google_event_id": "20250213-1900-38"
+        }
+      ]
+    },
+    {
+      "date": "2025-02-14",
+      "event_count": 2,
+      "high_stakes_count": 0,
+      "total_scheduled_minutes": 270,
+      "events": [
+        {
+          "title": "CSC 307",
+          "start": "2025-02-14T08:00:00-08:00",
+          "end": "2025-02-14T10:00:00-08:00",
+          "type": "class",
+          "google_event_id": "20250214-0800-39"
+        },
+        {
+          "title": "Valentine plans",
+          "start": "2025-02-14T18:30:00-08:00",
+          "end": "2025-02-14T21:00:00-08:00",
+          "type": "social",
+          "google_event_id": "20250214-1830-40"
+        }
+      ]
+    },
+    {
+      "date": "2025-02-15",
+      "event_count": 0,
+      "high_stakes_count": 0,
+      "total_scheduled_minutes": 0,
+      "events": []
+    },
+    {
+      "date": "2025-02-16",
+      "event_count": 2,
+      "high_stakes_count": 0,
+      "total_scheduled_minutes": 120,
+      "events": [
+        {
+          "title": "Long run",
+          "start": "2025-02-16T09:00:00-08:00",
+          "end": "2025-02-16T10:00:00-08:00",
+          "type": "exercise",
+          "google_event_id": "20250216-0900-41"
+        },
+        {
+          "title": "Meal prep",
+          "start": "2025-02-16T17:00:00-08:00",
+          "end": "2025-02-16T18:00:00-08:00",
+          "type": "personal",
+          "google_event_id": "20250216-1700-42"
+        }
+      ]
+    },
+    {
+      "date": "2025-02-17",
+      "event_count": 4,
+      "high_stakes_count": 0,
+      "total_scheduled_minutes": 450,
+      "events": [
+        {
+          "title": "CSC 307",
+          "start": "2025-02-17T08:00:00-08:00",
+          "end": "2025-02-17T10:00:00-08:00",
+          "type": "class",
+          "google_event_id": "20250217-0800-43"
+        },
+        {
+          "title": "gym",
+          "start": "2025-02-17T10:30:00-08:00",
+          "end": "2025-02-17T11:30:00-08:00",
+          "type": "exercise",
+          "google_event_id": "20250217-1030-44"
+        },
+        {
+          "title": "Work",
+          "start": "2025-02-17T13:00:00-08:00",
+          "end": "2025-02-17T16:30:00-08:00",
+          "type": "work",
+          "google_event_id": "20250217-1300-45"
+        },
+        {
+          "title": "Hack4Impact Designers",
+          "start": "2025-02-17T17:00:00-08:00",
+          "end": "2025-02-17T18:00:00-08:00",
+          "type": "meeting",
+          "google_event_id": "20250217-1700-46"
+        }
+      ]
+    },
+    {
+      "date": "2025-02-18",
+      "event_count": 4,
+      "high_stakes_count": 1,
+      "total_scheduled_minutes": 420,
+      "events": [
+        {
+          "title": "Meeting",
+          "start": "2025-02-18T08:00:00-08:00",
+          "end": "2025-02-18T09:00:00-08:00",
+          "type": "meeting",
+          "google_event_id": "20250218-0800-47"
+        },
+        {
+          "title": "Work",
+          "start": "2025-02-18T10:00:00-08:00",
+          "end": "2025-02-18T13:00:00-08:00",
+          "type": "work",
+          "google_event_id": "20250218-1000-48"
+        },
+        {
+          "title": "Career fair prep",
+          "start": "2025-02-18T14:00:00-08:00",
+          "end": "2025-02-18T15:00:00-08:00",
+          "type": "meeting",
+          "google_event_id": "20250218-1400-49"
+        },
+        {
+          "title": "IME 403",
+          "start": "2025-02-18T19:00:00-08:00",
+          "end": "2025-02-18T21:00:00-08:00",
+          "type": "class",
+          "google_event_id": "20250218-1900-50"
+        }
+      ]
+    },
+    {
+      "date": "2025-02-19",
+      "event_count": 5,
+      "high_stakes_count": 3,
+      "total_scheduled_minutes": 465,
+      "events": [
+        {
+          "title": "CSC 307",
+          "start": "2025-02-19T08:00:00-08:00",
+          "end": "2025-02-19T10:00:00-08:00",
+          "type": "class",
+          "google_event_id": "20250219-0800-51"
+        },
+        {
+          "title": "SNP Expert Call",
+          "start": "2025-02-19T10:00:00-08:00",
+          "end": "2025-02-19T10:45:00-08:00",
+          "type": "meeting",
+          "google_event_id": "20250219-1000-52"
+        },
+        {
+          "title": "BUS 490: O3-441",
+          "start": "2025-02-19T13:00:00-08:00",
+          "end": "2025-02-19T16:00:00-08:00",
+          "type": "class",
+          "google_event_id": "20250219-1300-53"
+        },
+        {
+          "title": "Founder interview prep",
+          "start": "2025-02-19T16:30:00-08:00",
+          "end": "2025-02-19T17:30:00-08:00",
+          "type": "interview",
+          "google_event_id": "20250219-1630-54"
+        },
+        {
+          "title": "Mock Interview w/ Kalissa",
+          "start": "2025-02-19T19:00:00-08:00",
+          "end": "2025-02-19T20:00:00-08:00",
+          "type": "interview",
+          "google_event_id": "20250219-1900-55"
+        }
+      ]
+    },
+    {
+      "date": "2025-02-20",
+      "event_count": 6,
+      "high_stakes_count": 3,
+      "total_scheduled_minutes": 570,
+      "events": [
+        {
+          "title": "Ali interview final round",
+          "start": "2025-02-20T09:00:00-08:00",
+          "end": "2025-02-20T10:00:00-08:00",
+          "type": "interview",
+          "google_event_id": "20250220-0900-56"
+        },
+        {
+          "title": "meeting w professor",
+          "start": "2025-02-20T10:00:00-08:00",
+          "end": "2025-02-20T11:00:00-08:00",
+          "type": "meeting",
+          "google_event_id": "20250220-1000-57"
+        },
+        {
+          "title": "Work",
+          "start": "2025-02-20T11:00:00-08:00",
+          "end": "2025-02-20T14:00:00-08:00",
+          "type": "work",
+          "google_event_id": "20250220-1100-58"
+        },
+        {
+          "title": "Team demo rehearsal",
+          "start": "2025-02-20T14:30:00-08:00",
+          "end": "2025-02-20T16:00:00-08:00",
+          "type": "meeting",
+          "google_event_id": "20250220-1430-59"
+        },
+        {
+          "title": "PT",
+          "start": "2025-02-20T18:00:00-08:00",
+          "end": "2025-02-20T19:00:00-08:00",
+          "type": "exercise",
+          "google_event_id": "20250220-1800-60"
+        },
+        {
+          "title": "IME 403",
+          "start": "2025-02-20T19:00:00-08:00",
+          "end": "2025-02-20T21:00:00-08:00",
+          "type": "class",
+          "google_event_id": "20250220-1900-61"
+        }
+      ]
+    },
+    {
+      "date": "2025-02-21",
+      "event_count": 2,
+      "high_stakes_count": 0,
+      "total_scheduled_minutes": 240,
+      "events": [
+        {
+          "title": "CSC 307",
+          "start": "2025-02-21T08:00:00-08:00",
+          "end": "2025-02-21T10:00:00-08:00",
+          "type": "class",
+          "google_event_id": "20250221-0800-62"
+        },
+        {
+          "title": "Hackathon kickoff",
+          "start": "2025-02-21T17:00:00-08:00",
+          "end": "2025-02-21T19:00:00-08:00",
+          "type": "meeting",
+          "google_event_id": "20250221-1700-63"
+        }
+      ]
+    },
+    {
+      "date": "2025-02-22",
+      "event_count": 2,
+      "high_stakes_count": 0,
+      "total_scheduled_minutes": 300,
+      "events": [
+        {
+          "title": "Hackathon work block",
+          "start": "2025-02-22T10:00:00-08:00",
+          "end": "2025-02-22T13:00:00-08:00",
+          "type": "work",
+          "google_event_id": "20250222-1000-64"
+        },
+        {
+          "title": "Dinner with friends",
+          "start": "2025-02-22T18:00:00-08:00",
+          "end": "2025-02-22T20:00:00-08:00",
+          "type": "social",
+          "google_event_id": "20250222-1800-65"
+        }
+      ]
+    }
+  ],
+  "google_calendar_api": {
+    "kind": "calendar#events",
+    "etag": "\"demo-james-two-weeks\"",
+    "summary": "James - Demo Calendar",
+    "description": "Google Calendar API-style mock response for Feb 9-22, 2025.",
+    "timeZone": "America/Los_Angeles",
+    "accessRole": "owner",
+    "defaultReminders": [
+      {
+        "method": "popup",
+        "minutes": 10
+      }
+    ],
+    "items": [
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250209-1000-0\"",
+        "id": "20250209-1000-0",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250209-1000-0",
+        "created": "2025-02-09T07:00:00-08:00",
+        "updated": "2025-02-09T07:00:00-08:00",
+        "summary": "pickleball",
+        "description": "Demo exercise event for James's Pulse stress-load dataset.",
+        "colorId": "7",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-09T10:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-09T12:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250209-1000-0@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "exercise",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250209-1300-1\"",
+        "id": "20250209-1300-1",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250209-1300-1",
+        "created": "2025-02-09T07:00:00-08:00",
+        "updated": "2025-02-09T07:00:00-08:00",
+        "summary": "Mex Food w/ Lauren Moro",
+        "description": "Demo social event for James's Pulse stress-load dataset.",
+        "colorId": "9",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-09T13:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-09T13:45:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250209-1300-1@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "social",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250209-1400-2\"",
+        "id": "20250209-1400-2",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250209-1400-2",
+        "created": "2025-02-09T07:00:00-08:00",
+        "updated": "2025-02-09T07:00:00-08:00",
+        "summary": "MC",
+        "description": "Demo meeting event for James's Pulse stress-load dataset.",
+        "colorId": "2",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-09T14:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-09T15:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250209-1400-2@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "meeting",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250209-1515-3\"",
+        "id": "20250209-1515-3",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250209-1515-3",
+        "created": "2025-02-09T07:00:00-08:00",
+        "updated": "2025-02-09T07:00:00-08:00",
+        "summary": "PRESENT in iter8 meeting",
+        "description": "Demo meeting event for James's Pulse stress-load dataset.",
+        "colorId": "2",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-09T15:15:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-09T17:15:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250209-1515-3@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "meeting",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250210-0800-4\"",
+        "id": "20250210-0800-4",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250210-0800-4",
+        "created": "2025-02-10T07:00:00-08:00",
+        "updated": "2025-02-10T07:00:00-08:00",
+        "summary": "CSC 307",
+        "description": "Demo class event for James's Pulse stress-load dataset.",
+        "colorId": "11",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-10T08:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-10T10:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250210-0800-4@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "class",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250210-0900-5\"",
+        "id": "20250210-0900-5",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250210-0900-5",
+        "created": "2025-02-10T07:00:00-08:00",
+        "updated": "2025-02-10T07:00:00-08:00",
+        "summary": "Seth <> Yuijun, Vidushi Coffee Chat",
+        "description": "Demo meeting event for James's Pulse stress-load dataset.",
+        "colorId": "2",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-10T09:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-10T10:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250210-0900-5@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "meeting",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250210-1000-6\"",
+        "id": "20250210-1000-6",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250210-1000-6",
+        "created": "2025-02-10T07:00:00-08:00",
+        "updated": "2025-02-10T07:00:00-08:00",
+        "summary": "gym",
+        "description": "Demo exercise event for James's Pulse stress-load dataset.",
+        "colorId": "7",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-10T10:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-10T11:30:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250210-1000-6@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "exercise",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250210-1200-7\"",
+        "id": "20250210-1200-7",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250210-1200-7",
+        "created": "2025-02-10T07:00:00-08:00",
+        "updated": "2025-02-10T07:00:00-08:00",
+        "summary": "Golf",
+        "description": "Demo exercise event for James's Pulse stress-load dataset.",
+        "colorId": "7",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-10T12:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-10T14:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250210-1200-7@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "exercise",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250210-1500-8\"",
+        "id": "20250210-1500-8",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250210-1500-8",
+        "created": "2025-02-10T07:00:00-08:00",
+        "updated": "2025-02-10T07:00:00-08:00",
+        "summary": "Work",
+        "description": "Demo work event for James's Pulse stress-load dataset.",
+        "colorId": "10",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-10T15:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-10T16:30:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250210-1500-8@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "work",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250210-1700-9\"",
+        "id": "20250210-1700-9",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250210-1700-9",
+        "created": "2025-02-10T07:00:00-08:00",
+        "updated": "2025-02-10T07:00:00-08:00",
+        "summary": "Hack4Impact Designers",
+        "description": "Demo meeting event for James's Pulse stress-load dataset.",
+        "colorId": "2",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-10T17:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-10T18:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250210-1700-9@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "meeting",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250210-2000-10\"",
+        "id": "20250210-2000-10",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250210-2000-10",
+        "created": "2025-02-10T07:00:00-08:00",
+        "updated": "2025-02-10T07:00:00-08:00",
+        "summary": "plege meeting - & personal finance",
+        "description": "Demo meeting event for James's Pulse stress-load dataset.",
+        "colorId": "2",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-10T20:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-10T21:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250210-2000-10@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "meeting",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250211-0800-11\"",
+        "id": "20250211-0800-11",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250211-0800-11",
+        "created": "2025-02-11T07:00:00-08:00",
+        "updated": "2025-02-11T07:00:00-08:00",
+        "summary": "Meeting",
+        "description": "Demo meeting event for James's Pulse stress-load dataset.",
+        "colorId": "2",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-11T08:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-11T09:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250211-0800-11@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "meeting",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250211-0900-12\"",
+        "id": "20250211-0900-12",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250211-0900-12",
+        "created": "2025-02-11T07:00:00-08:00",
+        "updated": "2025-02-11T07:00:00-08:00",
+        "summary": "James <> Sol",
+        "description": "Demo meeting event for James's Pulse stress-load dataset.",
+        "colorId": "2",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-11T09:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-11T10:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250211-0900-12@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "meeting",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250211-0900-13\"",
+        "id": "20250211-0900-13",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250211-0900-13",
+        "created": "2025-02-11T07:00:00-08:00",
+        "updated": "2025-02-11T07:00:00-08:00",
+        "summary": "James <> Soha",
+        "description": "Demo meeting event for James's Pulse stress-load dataset.",
+        "colorId": "2",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-11T09:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-11T10:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250211-0900-13@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "meeting",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250211-1000-14\"",
+        "id": "20250211-1000-14",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250211-1000-14",
+        "created": "2025-02-11T07:00:00-08:00",
+        "updated": "2025-02-11T07:00:00-08:00",
+        "summary": "Work",
+        "description": "Demo work event for James's Pulse stress-load dataset.",
+        "colorId": "10",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-11T10:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-11T13:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250211-1000-14@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "work",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250211-1415-15\"",
+        "id": "20250211-1415-15",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250211-1415-15",
+        "created": "2025-02-11T07:00:00-08:00",
+        "updated": "2025-02-11T07:00:00-08:00",
+        "summary": "jerry",
+        "description": "Demo meeting event for James's Pulse stress-load dataset.",
+        "colorId": "2",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-11T14:15:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-11T14:45:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250211-1415-15@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "meeting",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250211-1435-16\"",
+        "id": "20250211-1435-16",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250211-1435-16",
+        "created": "2025-02-11T07:00:00-08:00",
+        "updated": "2025-02-11T07:00:00-08:00",
+        "summary": "bring baking supplies",
+        "description": "Demo personal event for James's Pulse stress-load dataset.",
+        "colorId": "5",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-11T14:35:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-11T15:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250211-1435-16@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "personal",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250211-1500-17\"",
+        "id": "20250211-1500-17",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250211-1500-17",
+        "created": "2025-02-11T07:00:00-08:00",
+        "updated": "2025-02-11T07:00:00-08:00",
+        "summary": "Date",
+        "description": "Demo social event for James's Pulse stress-load dataset.",
+        "colorId": "9",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-11T15:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-11T17:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250211-1500-17@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "social",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250211-1800-18\"",
+        "id": "20250211-1800-18",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250211-1800-18",
+        "created": "2025-02-11T07:00:00-08:00",
+        "updated": "2025-02-11T07:00:00-08:00",
+        "summary": "crc",
+        "description": "Demo exercise event for James's Pulse stress-load dataset.",
+        "colorId": "7",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-11T18:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-11T19:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250211-1800-18@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "exercise",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250211-1900-19\"",
+        "id": "20250211-1900-19",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250211-1900-19",
+        "created": "2025-02-11T07:00:00-08:00",
+        "updated": "2025-02-11T07:00:00-08:00",
+        "summary": "IME 403",
+        "description": "Demo class event for James's Pulse stress-load dataset.",
+        "colorId": "11",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-11T19:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-11T21:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250211-1900-19@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "class",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250212-0800-20\"",
+        "id": "20250212-0800-20",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250212-0800-20",
+        "created": "2025-02-12T07:00:00-08:00",
+        "updated": "2025-02-12T07:00:00-08:00",
+        "summary": "CSC 307",
+        "description": "Demo class event for James's Pulse stress-load dataset.",
+        "colorId": "11",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-12T08:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-12T10:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250212-0800-20@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "class",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250212-1000-21\"",
+        "id": "20250212-1000-21",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250212-1000-21",
+        "created": "2025-02-12T07:00:00-08:00",
+        "updated": "2025-02-12T07:00:00-08:00",
+        "summary": "SNP Expert Call",
+        "description": "Demo meeting event for James's Pulse stress-load dataset.",
+        "colorId": "2",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-12T10:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-12T10:45:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250212-1000-21@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "meeting",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250212-1100-22\"",
+        "id": "20250212-1100-22",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250212-1100-22",
+        "created": "2025-02-12T07:00:00-08:00",
+        "updated": "2025-02-12T07:00:00-08:00",
+        "summary": "health appointment",
+        "description": "Demo appointment event for James's Pulse stress-load dataset.",
+        "colorId": "1",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-12T11:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-12T12:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250212-1100-22@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "appointment",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250212-1130-23\"",
+        "id": "20250212-1130-23",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250212-1130-23",
+        "created": "2025-02-12T07:00:00-08:00",
+        "updated": "2025-02-12T07:00:00-08:00",
+        "summary": "301",
+        "description": "Demo class event for James's Pulse stress-load dataset.",
+        "colorId": "11",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-12T11:30:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-12T13:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250212-1130-23@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "class",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250212-1300-24\"",
+        "id": "20250212-1300-24",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250212-1300-24",
+        "created": "2025-02-12T07:00:00-08:00",
+        "updated": "2025-02-12T07:00:00-08:00",
+        "summary": "BUS 490: O3-441",
+        "description": "Demo class event for James's Pulse stress-load dataset.",
+        "colorId": "11",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-12T13:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-12T16:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250212-1300-24@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "class",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250212-1345-25\"",
+        "id": "20250212-1345-25",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250212-1345-25",
+        "created": "2025-02-12T07:00:00-08:00",
+        "updated": "2025-02-12T07:00:00-08:00",
+        "summary": "PurpleTie Client Check-in",
+        "description": "Demo meeting event for James's Pulse stress-load dataset.",
+        "colorId": "2",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-12T13:45:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-12T14:15:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250212-1345-25@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "meeting",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250212-1430-26\"",
+        "id": "20250212-1430-26",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250212-1430-26",
+        "created": "2025-02-12T07:00:00-08:00",
+        "updated": "2025-02-12T07:00:00-08:00",
+        "summary": "Spokes Job Board with Mia",
+        "description": "Demo meeting event for James's Pulse stress-load dataset.",
+        "colorId": "2",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-12T14:30:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-12T15:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250212-1430-26@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "meeting",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250212-1800-27\"",
+        "id": "20250212-1800-27",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250212-1800-27",
+        "created": "2025-02-12T07:00:00-08:00",
+        "updated": "2025-02-12T07:00:00-08:00",
+        "summary": "TLs & Devs Meeting",
+        "description": "Demo meeting event for James's Pulse stress-load dataset.",
+        "colorId": "2",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-12T18:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-12T19:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250212-1800-27@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "meeting",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250212-1900-28\"",
+        "id": "20250212-1900-28",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250212-1900-28",
+        "created": "2025-02-12T07:00:00-08:00",
+        "updated": "2025-02-12T07:00:00-08:00",
+        "summary": "Mock Interview w/ Kalissa",
+        "description": "Demo interview event for James's Pulse stress-load dataset.",
+        "colorId": "10",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-12T19:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-12T20:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250212-1900-28@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "interview",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250212-2000-29\"",
+        "id": "20250212-2000-29",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250212-2000-29",
+        "created": "2025-02-12T07:00:00-08:00",
+        "updated": "2025-02-12T07:00:00-08:00",
+        "summary": "MC Engagement Working",
+        "description": "Demo meeting event for James's Pulse stress-load dataset.",
+        "colorId": "2",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-12T20:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-12T21:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250212-2000-29@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "meeting",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250213-0915-30\"",
+        "id": "20250213-0915-30",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250213-0915-30",
+        "created": "2025-02-13T07:00:00-08:00",
+        "updated": "2025-02-13T07:00:00-08:00",
+        "summary": "Ali interview",
+        "description": "Demo interview event for James's Pulse stress-load dataset.",
+        "colorId": "10",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-13T09:15:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-13T10:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250213-0915-30@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "interview",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250213-0915-31\"",
+        "id": "20250213-0915-31",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250213-0915-31",
+        "created": "2025-02-13T07:00:00-08:00",
+        "updated": "2025-02-13T07:00:00-08:00",
+        "summary": "Ali interview",
+        "description": "Demo interview event for James's Pulse stress-load dataset.",
+        "colorId": "10",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-13T09:15:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-13T10:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250213-0915-31@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "interview",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250213-1000-32\"",
+        "id": "20250213-1000-32",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250213-1000-32",
+        "created": "2025-02-13T07:00:00-08:00",
+        "updated": "2025-02-13T07:00:00-08:00",
+        "summary": "meeting w professor",
+        "description": "Demo meeting event for James's Pulse stress-load dataset.",
+        "colorId": "2",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-13T10:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-13T11:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250213-1000-32@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "meeting",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250213-1100-33\"",
+        "id": "20250213-1100-33",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250213-1100-33",
+        "created": "2025-02-13T07:00:00-08:00",
+        "updated": "2025-02-13T07:00:00-08:00",
+        "summary": "Work",
+        "description": "Demo work event for James's Pulse stress-load dataset.",
+        "colorId": "10",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-13T11:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-13T14:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250213-1100-33@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "work",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250213-1330-34\"",
+        "id": "20250213-1330-34",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250213-1330-34",
+        "created": "2025-02-13T07:00:00-08:00",
+        "updated": "2025-02-13T07:00:00-08:00",
+        "summary": "mike",
+        "description": "Demo meeting event for James's Pulse stress-load dataset.",
+        "colorId": "2",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-13T13:30:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-13T14:15:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250213-1330-34@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "meeting",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250213-1400-35\"",
+        "id": "20250213-1400-35",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250213-1400-35",
+        "created": "2025-02-13T07:00:00-08:00",
+        "updated": "2025-02-13T07:00:00-08:00",
+        "summary": "Hangout w/ Sofia",
+        "description": "Demo social event for James's Pulse stress-load dataset.",
+        "colorId": "9",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-13T14:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-13T17:15:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250213-1400-35@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "social",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250213-1600-36\"",
+        "id": "20250213-1600-36",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250213-1600-36",
+        "created": "2025-02-13T07:00:00-08:00",
+        "updated": "2025-02-13T07:00:00-08:00",
+        "summary": "Paula <> Cal Poly Students",
+        "description": "Demo meeting event for James's Pulse stress-load dataset.",
+        "colorId": "2",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-13T16:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-13T16:30:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250213-1600-36@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "meeting",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250213-1800-37\"",
+        "id": "20250213-1800-37",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250213-1800-37",
+        "created": "2025-02-13T07:00:00-08:00",
+        "updated": "2025-02-13T07:00:00-08:00",
+        "summary": "PT",
+        "description": "Demo exercise event for James's Pulse stress-load dataset.",
+        "colorId": "7",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-13T18:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-13T19:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250213-1800-37@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "exercise",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250213-1900-38\"",
+        "id": "20250213-1900-38",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250213-1900-38",
+        "created": "2025-02-13T07:00:00-08:00",
+        "updated": "2025-02-13T07:00:00-08:00",
+        "summary": "IME 403",
+        "description": "Demo class event for James's Pulse stress-load dataset.",
+        "colorId": "11",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-13T19:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-13T21:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250213-1900-38@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "class",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250214-0800-39\"",
+        "id": "20250214-0800-39",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250214-0800-39",
+        "created": "2025-02-14T07:00:00-08:00",
+        "updated": "2025-02-14T07:00:00-08:00",
+        "summary": "CSC 307",
+        "description": "Demo class event for James's Pulse stress-load dataset.",
+        "colorId": "11",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-14T08:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-14T10:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250214-0800-39@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "class",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250214-1830-40\"",
+        "id": "20250214-1830-40",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250214-1830-40",
+        "created": "2025-02-14T07:00:00-08:00",
+        "updated": "2025-02-14T07:00:00-08:00",
+        "summary": "Valentine plans",
+        "description": "Demo social event for James's Pulse stress-load dataset.",
+        "colorId": "9",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-14T18:30:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-14T21:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250214-1830-40@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "social",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250216-0900-41\"",
+        "id": "20250216-0900-41",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250216-0900-41",
+        "created": "2025-02-16T07:00:00-08:00",
+        "updated": "2025-02-16T07:00:00-08:00",
+        "summary": "Long run",
+        "description": "Demo exercise event for James's Pulse stress-load dataset.",
+        "colorId": "7",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-16T09:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-16T10:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250216-0900-41@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "exercise",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250216-1700-42\"",
+        "id": "20250216-1700-42",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250216-1700-42",
+        "created": "2025-02-16T07:00:00-08:00",
+        "updated": "2025-02-16T07:00:00-08:00",
+        "summary": "Meal prep",
+        "description": "Demo personal event for James's Pulse stress-load dataset.",
+        "colorId": "5",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-16T17:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-16T18:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250216-1700-42@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "personal",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250217-0800-43\"",
+        "id": "20250217-0800-43",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250217-0800-43",
+        "created": "2025-02-17T07:00:00-08:00",
+        "updated": "2025-02-17T07:00:00-08:00",
+        "summary": "CSC 307",
+        "description": "Demo class event for James's Pulse stress-load dataset.",
+        "colorId": "11",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-17T08:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-17T10:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250217-0800-43@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "class",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250217-1030-44\"",
+        "id": "20250217-1030-44",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250217-1030-44",
+        "created": "2025-02-17T07:00:00-08:00",
+        "updated": "2025-02-17T07:00:00-08:00",
+        "summary": "gym",
+        "description": "Demo exercise event for James's Pulse stress-load dataset.",
+        "colorId": "7",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-17T10:30:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-17T11:30:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250217-1030-44@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "exercise",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250217-1300-45\"",
+        "id": "20250217-1300-45",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250217-1300-45",
+        "created": "2025-02-17T07:00:00-08:00",
+        "updated": "2025-02-17T07:00:00-08:00",
+        "summary": "Work",
+        "description": "Demo work event for James's Pulse stress-load dataset.",
+        "colorId": "10",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-17T13:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-17T16:30:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250217-1300-45@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "work",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250217-1700-46\"",
+        "id": "20250217-1700-46",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250217-1700-46",
+        "created": "2025-02-17T07:00:00-08:00",
+        "updated": "2025-02-17T07:00:00-08:00",
+        "summary": "Hack4Impact Designers",
+        "description": "Demo meeting event for James's Pulse stress-load dataset.",
+        "colorId": "2",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-17T17:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-17T18:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250217-1700-46@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "meeting",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250218-0800-47\"",
+        "id": "20250218-0800-47",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250218-0800-47",
+        "created": "2025-02-18T07:00:00-08:00",
+        "updated": "2025-02-18T07:00:00-08:00",
+        "summary": "Meeting",
+        "description": "Demo meeting event for James's Pulse stress-load dataset.",
+        "colorId": "2",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-18T08:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-18T09:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250218-0800-47@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "meeting",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250218-1000-48\"",
+        "id": "20250218-1000-48",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250218-1000-48",
+        "created": "2025-02-18T07:00:00-08:00",
+        "updated": "2025-02-18T07:00:00-08:00",
+        "summary": "Work",
+        "description": "Demo work event for James's Pulse stress-load dataset.",
+        "colorId": "10",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-18T10:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-18T13:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250218-1000-48@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "work",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250218-1400-49\"",
+        "id": "20250218-1400-49",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250218-1400-49",
+        "created": "2025-02-18T07:00:00-08:00",
+        "updated": "2025-02-18T07:00:00-08:00",
+        "summary": "Career fair prep",
+        "description": "Demo meeting event for James's Pulse stress-load dataset.",
+        "colorId": "2",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-18T14:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-18T15:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250218-1400-49@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "meeting",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250218-1900-50\"",
+        "id": "20250218-1900-50",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250218-1900-50",
+        "created": "2025-02-18T07:00:00-08:00",
+        "updated": "2025-02-18T07:00:00-08:00",
+        "summary": "IME 403",
+        "description": "Demo class event for James's Pulse stress-load dataset.",
+        "colorId": "11",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-18T19:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-18T21:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250218-1900-50@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "class",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250219-0800-51\"",
+        "id": "20250219-0800-51",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250219-0800-51",
+        "created": "2025-02-19T07:00:00-08:00",
+        "updated": "2025-02-19T07:00:00-08:00",
+        "summary": "CSC 307",
+        "description": "Demo class event for James's Pulse stress-load dataset.",
+        "colorId": "11",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-19T08:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-19T10:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250219-0800-51@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "class",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250219-1000-52\"",
+        "id": "20250219-1000-52",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250219-1000-52",
+        "created": "2025-02-19T07:00:00-08:00",
+        "updated": "2025-02-19T07:00:00-08:00",
+        "summary": "SNP Expert Call",
+        "description": "Demo meeting event for James's Pulse stress-load dataset.",
+        "colorId": "2",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-19T10:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-19T10:45:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250219-1000-52@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "meeting",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250219-1300-53\"",
+        "id": "20250219-1300-53",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250219-1300-53",
+        "created": "2025-02-19T07:00:00-08:00",
+        "updated": "2025-02-19T07:00:00-08:00",
+        "summary": "BUS 490: O3-441",
+        "description": "Demo class event for James's Pulse stress-load dataset.",
+        "colorId": "11",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-19T13:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-19T16:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250219-1300-53@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "class",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250219-1630-54\"",
+        "id": "20250219-1630-54",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250219-1630-54",
+        "created": "2025-02-19T07:00:00-08:00",
+        "updated": "2025-02-19T07:00:00-08:00",
+        "summary": "Founder interview prep",
+        "description": "Demo interview event for James's Pulse stress-load dataset.",
+        "colorId": "10",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-19T16:30:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-19T17:30:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250219-1630-54@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "interview",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250219-1900-55\"",
+        "id": "20250219-1900-55",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250219-1900-55",
+        "created": "2025-02-19T07:00:00-08:00",
+        "updated": "2025-02-19T07:00:00-08:00",
+        "summary": "Mock Interview w/ Kalissa",
+        "description": "Demo interview event for James's Pulse stress-load dataset.",
+        "colorId": "10",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-19T19:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-19T20:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250219-1900-55@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "interview",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250220-0900-56\"",
+        "id": "20250220-0900-56",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250220-0900-56",
+        "created": "2025-02-20T07:00:00-08:00",
+        "updated": "2025-02-20T07:00:00-08:00",
+        "summary": "Ali interview final round",
+        "description": "Demo interview event for James's Pulse stress-load dataset.",
+        "colorId": "10",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-20T09:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-20T10:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250220-0900-56@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "interview",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250220-1000-57\"",
+        "id": "20250220-1000-57",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250220-1000-57",
+        "created": "2025-02-20T07:00:00-08:00",
+        "updated": "2025-02-20T07:00:00-08:00",
+        "summary": "meeting w professor",
+        "description": "Demo meeting event for James's Pulse stress-load dataset.",
+        "colorId": "2",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-20T10:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-20T11:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250220-1000-57@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "meeting",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250220-1100-58\"",
+        "id": "20250220-1100-58",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250220-1100-58",
+        "created": "2025-02-20T07:00:00-08:00",
+        "updated": "2025-02-20T07:00:00-08:00",
+        "summary": "Work",
+        "description": "Demo work event for James's Pulse stress-load dataset.",
+        "colorId": "10",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-20T11:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-20T14:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250220-1100-58@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "work",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250220-1430-59\"",
+        "id": "20250220-1430-59",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250220-1430-59",
+        "created": "2025-02-20T07:00:00-08:00",
+        "updated": "2025-02-20T07:00:00-08:00",
+        "summary": "Team demo rehearsal",
+        "description": "Demo meeting event for James's Pulse stress-load dataset.",
+        "colorId": "2",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-20T14:30:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-20T16:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250220-1430-59@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "meeting",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250220-1800-60\"",
+        "id": "20250220-1800-60",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250220-1800-60",
+        "created": "2025-02-20T07:00:00-08:00",
+        "updated": "2025-02-20T07:00:00-08:00",
+        "summary": "PT",
+        "description": "Demo exercise event for James's Pulse stress-load dataset.",
+        "colorId": "7",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-20T18:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-20T19:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250220-1800-60@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "exercise",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250220-1900-61\"",
+        "id": "20250220-1900-61",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250220-1900-61",
+        "created": "2025-02-20T07:00:00-08:00",
+        "updated": "2025-02-20T07:00:00-08:00",
+        "summary": "IME 403",
+        "description": "Demo class event for James's Pulse stress-load dataset.",
+        "colorId": "11",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-20T19:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-20T21:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250220-1900-61@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "class",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250221-0800-62\"",
+        "id": "20250221-0800-62",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250221-0800-62",
+        "created": "2025-02-21T07:00:00-08:00",
+        "updated": "2025-02-21T07:00:00-08:00",
+        "summary": "CSC 307",
+        "description": "Demo class event for James's Pulse stress-load dataset.",
+        "colorId": "11",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-21T08:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-21T10:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250221-0800-62@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "class",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250221-1700-63\"",
+        "id": "20250221-1700-63",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250221-1700-63",
+        "created": "2025-02-21T07:00:00-08:00",
+        "updated": "2025-02-21T07:00:00-08:00",
+        "summary": "Hackathon kickoff",
+        "description": "Demo meeting event for James's Pulse stress-load dataset.",
+        "colorId": "2",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-21T17:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-21T19:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250221-1700-63@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "meeting",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250222-1000-64\"",
+        "id": "20250222-1000-64",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250222-1000-64",
+        "created": "2025-02-22T07:00:00-08:00",
+        "updated": "2025-02-22T07:00:00-08:00",
+        "summary": "Hackathon work block",
+        "description": "Demo work event for James's Pulse stress-load dataset.",
+        "colorId": "10",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-22T10:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-22T13:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250222-1000-64@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "work",
+            "pulse_persona": "James"
+          }
+        }
+      },
+      {
+        "kind": "calendar#event",
+        "etag": "\"demo-20250222-1800-65\"",
+        "id": "20250222-1800-65",
+        "status": "confirmed",
+        "htmlLink": "https://calendar.google.com/calendar/event?eid=20250222-1800-65",
+        "created": "2025-02-22T07:00:00-08:00",
+        "updated": "2025-02-22T07:00:00-08:00",
+        "summary": "Dinner with friends",
+        "description": "Demo social event for James's Pulse stress-load dataset.",
+        "colorId": "9",
+        "creator": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "organizer": {
+          "email": "james@example.com",
+          "self": true
+        },
+        "start": {
+          "dateTime": "2025-02-22T18:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "end": {
+          "dateTime": "2025-02-22T20:00:00-08:00",
+          "timeZone": "America/Los_Angeles"
+        },
+        "iCalUID": "20250222-1800-65@google.com",
+        "sequence": 0,
+        "reminders": {
+          "useDefault": true
+        },
+        "eventType": "default",
+        "extendedProperties": {
+          "private": {
+            "demo_type": "social",
+            "pulse_persona": "James"
+          }
+        }
+      }
+    ]
+  }
 }

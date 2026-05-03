@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "node --watch src/index.js",
-    "dev:backend": "node --watch src/index.js"
+    "dev:backend": "node --watch src/index.js",
+    "generate:fixtures": "node scripts/generate-demo-fixtures.js"
   },
   "dependencies": {
     "axios": "1.6.8",

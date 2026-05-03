@@ -1,6 +1,9 @@
 {
-  "sleep_baseline_hours": 7.5,
-  "hrv_7d_avg": 47,
+  "sleep_baseline_hours": 7,
+  "hrv_7d_avg": 70,
   "resting_hr_7d_avg": 58,
+  "readiness_7d_avg": 76,
+  "stress_high_minutes_7d_avg": 63,
+  "recovery_high_minutes_7d_avg": 74,
   "approximated": false
 }

@@ -10,4 +10,10 @@ module.exports = {
   getBaselineFixture: () => loadFixture('baseline'),
   getLlmResponseFixture: () => loadFixture('llm-response'),
   getSmsPreviewFixture: () => loadFixture('sms-preview'),
+  getDemoDataFixture: () => ({
+    persona: loadFixture('calendar').persona,
+    calendar: loadFixture('calendar'),
+    oura: loadFixture('oura'),
+    baseline: loadFixture('baseline'),
+  }),
 };

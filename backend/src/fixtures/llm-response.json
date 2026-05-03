@@ -1,6 +1,11 @@
 {
-  "stress_level": "Elevated",
-  "drivers": ["Sleep 2.5h below baseline", "HRV 26ms below 7-day avg", "Midterm exam at 11 AM"],
-  "action_recommendation": "Block your 3:30–5:00 PM gap for a 20-minute walk outside — it's your only free window before the evening and the fastest way to bring cortisol down before you study.",
-  "summary": "Your body is running on a significant sleep deficit and your HRV is well below baseline — both signs your nervous system is already under load before the midterm. Protect your 3:30 PM window."
+  "stress_level": "High",
+  "drivers": [
+    "Sleep 1.75h below baseline",
+    "HRV 15ms below 7-day average",
+    "Nine calendar events with interviews and evening class",
+    "Only short recovery gaps before 6 PM"
+  ],
+  "action_recommendation": "Use the 5:15-6:00 PM gap for food, a walk, and no phone before PT and IME 403. Do not add another meeting there.",
+  "summary": "James, your recovery is down and Thursday is stacked with interviews, work, meetings, PT, and class. Pulse should protect the 5:15 PM gap and keep nudges brief."
 }
