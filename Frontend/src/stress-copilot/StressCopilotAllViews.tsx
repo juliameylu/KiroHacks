@@ -1,5 +1,6 @@
-import { useCallback, useState, type ReactElement, type ReactNode } from 'react'
+import { useCallback, useEffect, useRef, useState, type ReactElement, type ReactNode } from 'react'
 import AppLoadingScreen from '../components/AppLoadingScreen'
+import SplashScreen from '../components/SplashScreen'
 import './stressCopilot.css'
 
 type IconProps = { size?: number; className?: string }
@@ -287,12 +288,13 @@ const responseModes: Record<ResponseMode, { label: string; detail: string; previ
 }
 
 const setupChecklist = [
-  ['Google Calendar', 'Meeting load and open recovery windows'],
-  ['Oura', 'Sleep, HRV, and body signal baselines'],
-  ['Phone number', 'Pulse texts, confirmations, and support mode'],
+  ['Google Calendar', 'See today\'s schedule and recovery windows'],
+  ['Oura', 'Sleep quality, heart rate, and recovery'],
+  ['Phone number', 'Where we send your updates'],
 ]
 
 function PulseApp() {
+  const [showSplash, setShowSplash] = useState(true)
   const [isOnboarded, setIsOnboarded] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [onboardingValues, setOnboardingValues] = useState<OnboardingValues>({
@@ -351,6 +353,10 @@ function PulseApp() {
 
   const currentTitle = viewLabels[view]
 
+  if (showSplash) {
+    return <SplashScreen onComplete={() => setShowSplash(false)} />
+  }
+
   if (!isOnboarded && !isLoading) {
     return <OnboardingFlow values={onboardingValues} onChange={updateOnboarding} onComplete={completeOnboarding} />
   }
@@ -408,47 +414,117 @@ function OnboardingFlow({
   values: OnboardingValues
 }) {
   const canContinue = Boolean(values.googleLogin.trim() && values.ouraLogin.trim() && values.phoneNumber.trim())
+  const [googleBlurred, setGoogleBlurred] = useState(false)
+  const [googleFocused, setGoogleFocused] = useState(false)
+  const googleDone = googleBlurred && !googleFocused && Boolean(values.googleLogin.trim())
+
+  const [ouraBlurred, setOuraBlurred] = useState(false)
+  const [ouraFocused, setOuraFocused] = useState(false)
+  const ouraDone = ouraBlurred && !ouraFocused && Boolean(values.ouraLogin.trim())
+
+  const [phoneBlurred, setPhoneBlurred] = useState(false)
+  const [phoneFocused, setPhoneFocused] = useState(false)
+  const phoneDone = phoneBlurred && !phoneFocused && Boolean(values.phoneNumber.trim())
+
+  const heroTopRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const el = heroTopRef.current
+    if (!el) return
+    const onScroll = () => {
+      const fadeStart = window.innerHeight * 0.25
+      const fadeEnd = window.innerHeight * 0.65
+      const opacity = Math.max(0, 1 - Math.max(0, window.scrollY - fadeStart) / (fadeEnd - fadeStart))
+      el.style.opacity = String(opacity)
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  useEffect(() => {
+    const markVisible = (entries: IntersectionObserverEntry[]) =>
+      entries.forEach(e => { if (e.isIntersecting) (e.target as HTMLElement).classList.add('is-visible') })
+
+    const heroObserver = new IntersectionObserver(markVisible, { threshold: 0 })
+    const bodyObserver = new IntersectionObserver(markVisible, {
+      threshold: 0,
+      rootMargin: '0px 0px -22% 0px',
+    })
+
+    document.querySelectorAll('.ob-hero .ob-reveal').forEach(el => heroObserver.observe(el))
+    document.querySelectorAll('.ob-body .ob-reveal').forEach(el => bodyObserver.observe(el))
+
+    return () => { heroObserver.disconnect(); bodyObserver.disconnect() }
+  }, [])
 
   return (
-    <main className="product-root onboarding-root">
-      <section className="onboarding-shell">
-        <div className="onboarding-copy">
-          <div className="brand-block">
-            <span className="brand-mark" />
-            <div>
-              <strong>Pulse</strong>
-              <small>Personal signal setup</small>
+    <div className="ob-page">
+      <nav className="ob-nav">
+        <div className="ob-nav-brand">
+          <span className="ob-nav-mark" />
+          <div>
+            <strong className="ob-nav-name">Pulse</strong>
+          </div>
+        </div>
+        <span className="ob-nav-eyebrow">Account setup</span>
+      </nav>
+
+      <section className="ob-hero" ref={heroTopRef}>
+        <div className="ob-orb-wrap ob-reveal">
+          <div className="ob-ring ob-ring-3" />
+          <div className="ob-ring ob-ring-2" />
+          <div className="ob-ring ob-ring-1" />
+          <div className="ob-orb-sphere" />
+        </div>
+
+        <h1 className="ob-headline">
+          <span className="ob-reveal" style={{ transitionDelay: '0.5s' }}>Bring your signals</span>
+          <span className="ob-reveal" style={{ transitionDelay: '0.8s' }}>together.</span>
+        </h1>
+
+        <div className="ob-subtitle-lines">
+          <p className="ob-subtitle ob-reveal" style={{ transitionDelay: '1.4s' }}>Link your sleep, schedule, and number</p>
+          <p className="ob-subtitle ob-reveal" style={{ transitionDelay: '1.7s' }}>— powered by Oura and Calendar —</p>
+          <p className="ob-subtitle ob-reveal" style={{ transitionDelay: '2.0s' }}>to get your daily recommendation.</p>
+        </div>
+      </section>
+
+      <section className="ob-body">
+        <div className="ob-sources">
+          <span className="ob-eyebrow ob-reveal" style={{ transitionDelay: '0.1s' }}>Your signals</span>
+          {setupChecklist.map(([title, detail], i) => (
+            <div
+              key={title}
+              className="ob-source-card ob-reveal"
+              style={{ transitionDelay: `${0.1 + i * 0.2}s` }}
+            >
+              <span className={`ob-source-icon${(i === 0 && googleDone) || (i === 1 && ouraDone) || (i === 2 && phoneDone) ? ' ob-source-icon--done' : ''}`}>
+                <Icon.Check size={14} />
+              </span>
+              <span>
+                <strong>{title}</strong>
+                <small>{detail}</small>
+              </span>
             </div>
-          </div>
-          <span className="eyebrow">Account setup</span>
-          <h1>Connect the signals Pulse needs.</h1>
-          <p>Start with Google Calendar, Oura, and your phone number. These are local placeholders until OAuth and messaging are wired into the backend.</p>
-          <div className="setup-preview">
-            {setupChecklist.map(([title, detail]) => (
-              <div key={title}>
-                <Icon.Check size={16} />
-                <span>
-                  <strong>{title}</strong>
-                  <small>{detail}</small>
-                </span>
-              </div>
-            ))}
-          </div>
+          ))}
         </div>
 
         <form
-          className="onboarding-card"
+          className="ob-form ob-reveal"
+          style={{ transitionDelay: '0.1s' }}
           onSubmit={(event) => {
             event.preventDefault()
             if (canContinue) onComplete()
           }}
         >
-          <span className="eyebrow">Login details</span>
+          <span className="ob-eyebrow">Connect your accounts</span>
           <label>
-            <span>Google login</span>
+            <span>Google Calendar</span>
             <input
               autoComplete="email"
               name="google-login"
+              onFocus={() => setGoogleFocused(true)}
+              onBlur={() => { setGoogleBlurred(true); setGoogleFocused(false) }}
               onChange={(event) => onChange('googleLogin', event.target.value)}
               placeholder="you@gmail.com"
               type="email"
@@ -456,12 +532,14 @@ function OnboardingFlow({
             />
           </label>
           <label>
-            <span>Oura login</span>
+            <span>Oura</span>
             <input
               autoComplete="email"
               name="oura-login"
+              onFocus={() => setOuraFocused(true)}
+              onBlur={() => { setOuraBlurred(true); setOuraFocused(false) }}
               onChange={(event) => onChange('ouraLogin', event.target.value)}
-              placeholder="oura account email"
+              placeholder="you@email.com"
               type="email"
               value={values.ouraLogin}
             />
@@ -471,19 +549,29 @@ function OnboardingFlow({
             <input
               autoComplete="tel"
               name="phone-number"
+              onFocus={() => setPhoneFocused(true)}
+              onBlur={() => { setPhoneBlurred(true); setPhoneFocused(false) }}
               onChange={(event) => onChange('phoneNumber', event.target.value)}
-              placeholder="(555) 013-4040"
+              placeholder="(123) 456-789"
               type="tel"
               value={values.phoneNumber}
             />
           </label>
           <button disabled={!canContinue} type="submit">
-            Enter Pulse
+            See my day
           </button>
-          <p>Mock setup only. The backend can replace these fields with real Google, Oura, and phone verification flows.</p>
         </form>
       </section>
-    </main>
+
+      <footer className="ob-footer">
+        <div className="ob-footer-links">
+          <span>Terms &amp; Conditions</span>
+          <span>Privacy Policy</span>
+          <span>Accessibility</span>
+          <span>Security Center</span>
+        </div>
+      </footer>
+    </div>
   )
 }
 
@@ -523,6 +611,12 @@ function TopBar({ title }: { title: string }) {
   )
 }
 
+const driverDisplayLabel: Record<string, string> = {
+  'HRV': 'Body strain',
+  'Recovery gap': 'Recovery time',
+  'Recovery': 'Recovery space',
+}
+
 function TodayView({
   activity,
   state,
@@ -533,10 +627,11 @@ function TodayView({
   onStateChange: (state: StressState) => void
 }) {
   const copy = stateCopy[state]
+  const isCalm = state === 'steady'
 
   return (
-    <div className="view-stack">
-      <div className="state-tabs" role="tablist" aria-label="Stress state">
+    <div className="td-root" key={state}>
+      <div className="state-tabs td-tabs" role="tablist" aria-label="Stress state">
         {(Object.keys(stateCopy) as StressState[]).map((item) => (
           <button key={item} className={state === item ? 'active' : ''} type="button" onClick={() => onStateChange(item)}>
             {stateCopy[item].label}
@@ -544,34 +639,80 @@ function TodayView({
         ))}
       </div>
 
-      <section className="today-layout">
-        <div className="signal-card">
-          <div>
-            <span className="eyebrow">Body signal</span>
-            <h2>{copy.headline}</h2>
-            <p>{copy.summary}</p>
+      <section className="td-hero td-reveal">
+        <h2 className="td-headline">{copy.headline}</h2>
+        <p className="td-summary">{copy.summary}</p>
+      </section>
+
+      <div className={`td-action-card td-reveal${isCalm ? ' td-action-card--calm' : ''}`}>
+        <span className="eyebrow">{isCalm ? 'All clear' : 'Suggested reset'}</span>
+        <h3 className="td-action-title">{copy.action.title}</h3>
+        <p>{copy.action.detail}</p>
+        {!isCalm && (
+          <div className="td-action-btns">
+            <button type="button">{copy.action.cta}</button>
+            <button type="button">Not now</button>
           </div>
-          <SignalOrb state={state} score={copy.score} />
+        )}
+      </div>
+
+      <div className="td-body td-reveal">
+        <div className="td-drivers">
+          <span className="eyebrow">Why this matters</span>
+          {copy.drivers.map((driver) => (
+            <TdDriverItem key={driver.label} driver={driver} />
+          ))}
         </div>
-      </section>
+        <div className="td-calendar">
+          <span className="eyebrow">Your day</span>
+          <TdCalendarList state={state} />
+        </div>
+      </div>
 
-      <section className="dashboard-grid today-dashboard">
-        <Panel title="Top drivers" className="drivers-panel">
-          <div className="driver-list">
-            {copy.drivers.map((driver) => (
-              <DriverRow key={driver.label} driver={driver} />
-            ))}
-          </div>
-        </Panel>
+      <div className="td-activity td-reveal">
+        <span className="eyebrow">What Pulse did</span>
+        <ActivityList activity={activity} />
+      </div>
+    </div>
+  )
+}
 
-        <Panel title="Upcoming calendar">
-          <CalendarList />
-        </Panel>
+function TdDriverItem({
+  driver,
+}: {
+  driver: { label: string; detail: string; tone: 'good' | 'watch' | 'high' }
+}) {
+  const label = driverDisplayLabel[driver.label] ?? driver.label
+  return (
+    <div className="td-driver-item" data-tone={driver.tone}>
+      <span className="td-driver-dot" />
+      <span>
+        <strong>{label}</strong>
+        <small>{driver.detail}</small>
+      </span>
+    </div>
+  )
+}
 
-        <Panel title="Agent activity" className="activity-panel">
-          <ActivityList activity={activity} />
-        </Panel>
-      </section>
+function TdCalendarList({ state }: { state: StressState }) {
+  const highlight = state !== 'steady'
+  const items: Array<[string, string, string, boolean]> = [
+    ['11:00 AM', 'Design review', '45 min', false],
+    ['1:30 PM', 'Product sync', '30 min', false],
+    ['3:30 PM', highlight ? 'Suggested hold' : 'Open window', highlight ? 'Protected time' : 'Free block', highlight],
+    ['4:00 PM', 'Engineering sync', highlight ? 'Can move' : '30 min', false],
+  ]
+  return (
+    <div className="td-cal-list">
+      {items.map(([time, title, meta, hl]) => (
+        <div key={time} className={`td-cal-item${hl ? ' td-cal-item--highlight' : ''}`}>
+          <span className="td-cal-time">{time}</span>
+          <span className="td-cal-event">
+            <strong>{title}</strong>
+            <small>{meta}</small>
+          </span>
+        </div>
+      ))}
     </div>
   )
 }

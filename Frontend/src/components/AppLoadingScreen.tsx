@@ -31,7 +31,6 @@ export default function AppLoadingScreen({ onComplete }: Props) {
   return (
     <div className="als-root">
       <div className="als-brand">
-        <span className="als-mark" />
         <span className="als-name">Pulse</span>
       </div>
 
