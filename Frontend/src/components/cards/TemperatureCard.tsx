@@ -19,7 +19,7 @@ function buildSummary(deviation: number | null | undefined): string {
 
 /**
  * Returns a one-sentence interpretation based on skin temperature deviation from baseline.
- * Thresholds: >0.5°C = elevated (stress/illness), 0.2–0.5°C = slight elevation,
+ * Thresholds: >0.5°C = strong above-baseline signal, 0.2–0.5°C = slight elevation,
  * -0.2 to 0.2°C = normal range, <-0.2°C = slightly lower (good recovery).
  */
 function buildInterpretation(deviation: number): string {

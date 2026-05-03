@@ -10,18 +10,18 @@ interface StressHeaderProps {
 /** Maps stress level to a display color */
 function stressColor(level: StressLevel): string {
   switch (level) {
-    case 'Elevated': return '#ef4444'
-    case 'Moderate': return '#f59e0b'
-    case 'Calm':     return '#22c55e'
+    case 'High load': return '#ef4444'
+    case 'Steady load': return '#f59e0b'
+    case 'Low load': return '#22c55e'
   }
 }
 
 /** Maps stress level to a subtle background tint */
 function stressBg(level: StressLevel): string {
   switch (level) {
-    case 'Elevated': return 'rgba(239, 68, 68, 0.15)'
-    case 'Moderate': return 'rgba(245, 158, 11, 0.15)'
-    case 'Calm':     return 'rgba(34, 197, 94, 0.15)'
+    case 'High load': return 'rgba(239, 68, 68, 0.15)'
+    case 'Steady load': return 'rgba(245, 158, 11, 0.15)'
+    case 'Low load': return 'rgba(34, 197, 94, 0.15)'
   }
 }
 

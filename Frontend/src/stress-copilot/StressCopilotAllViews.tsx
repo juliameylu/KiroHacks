@@ -7,7 +7,7 @@ type IconProps = { size?: number; className?: string }
 type IconComponent = (props: IconProps) => ReactElement
 type ViewId = 'today' | 'week' | 'messages' | 'history' | 'settings'
 type SourceId = 'oura' | 'calendar' | 'imessage'
-type StressState = 'steady' | 'elevated' | 'high'
+type StressState = 'high'
 type MessageScript = 'morning' | 'midday' | 'support'
 type ResponseMode = 'brief' | 'gentle' | 'direct' | 'quiet'
 
@@ -118,10 +118,12 @@ const viewLabels: Record<ViewId, string> = {
 
 const navItems: Array<{ id: ViewId; icon: IconComponent }> = [
   { id: 'today', icon: Icon.Spark },
-  { id: 'week', icon: Icon.Calendar },
-  { id: 'messages', icon: Icon.Message },
-  { id: 'history', icon: Icon.Memory },
-  { id: 'settings', icon: Icon.Lock },
+]
+
+const fakeNavItems: Array<{ label: string; icon: IconComponent }> = [
+  { label: 'Week', icon: Icon.Calendar },
+  { label: 'Messages', icon: Icon.Message },
+  { label: 'Patterns', icon: Icon.Memory },
 ]
 
 const sourceIcons: Record<SourceId, IconComponent> = {
@@ -164,57 +166,72 @@ const stateCopy: Record<
     headline: string
     summary: string
     score: number
-    drivers: Array<{ label: string; detail: string; icon: IconComponent; value: string; meter: number; tone: 'good' | 'watch' | 'high' }>
-    action: { title: string; detail: string; cta: string }
+    drivers: Array<{ label: string; detail: string; explanation: string; icon: IconComponent; value: string; meter: number; tone: 'good' | 'watch' | 'high' }>
+    action: { title: string; detail: string }
   }
 > = {
-  steady: {
-    label: 'Steady',
-    headline: 'Steady today',
-    summary: 'Your body signal is close to baseline and the calendar has breathing room. Pulse will stay quiet unless something changes.',
-    score: 32,
-    drivers: [
-      { label: 'Sleep', detail: '7h 42m, efficient', icon: Icon.Sleep, value: '+8%', meter: 82, tone: 'good' },
-      { label: 'HRV', detail: 'Above 7-day baseline', icon: Icon.Heart, value: '+4%', meter: 76, tone: 'good' },
-      { label: 'Calendar', detail: '3 meetings, 2 buffers', icon: Icon.Calendar, value: 'Light', meter: 44, tone: 'good' },
-      { label: 'Recovery', detail: 'Two open reset windows', icon: Icon.Spark, value: 'Open', meter: 68, tone: 'good' },
-    ],
-    action: { title: 'No action needed', detail: 'Pulse will stay quiet and check again after lunch.', cta: 'Keep quiet' },
-  },
-  elevated: {
-    label: 'Elevated',
-    headline: 'Elevated load',
-    summary: 'Sleep and HRV are lower than usual, and the afternoon is dense. A small calendar hold would protect a real reset window.',
-    score: 68,
-    drivers: [
-      { label: 'Sleep', detail: '5h 48m, 1h below norm', icon: Icon.Sleep, value: '-18%', meter: 34, tone: 'watch' },
-      { label: 'HRV', detail: '11% under 7-day baseline', icon: Icon.Heart, value: '-11%', meter: 42, tone: 'watch' },
-      { label: 'Calendar', detail: '6 meetings, no buffers', icon: Icon.Calendar, value: 'Dense', meter: 88, tone: 'high' },
-      { label: 'Recovery gap', detail: 'No break after 1:30 PM', icon: Icon.Spark, value: 'Tight', meter: 74, tone: 'watch' },
-    ],
-    action: { title: 'Hold 3:30-4:00 PM', detail: 'No meeting currently needs that slot. This remains a draft until accepted.', cta: 'Hold slot' },
-  },
   high: {
-    label: 'High load',
-    headline: 'High load',
-    summary: 'Multiple signals are pointing the same direction. Pulse suggests reducing the afternoon load where possible.',
-    score: 84,
+    label: 'High load today',
+    headline: 'High load today',
+    summary: 'Today will ask more from you — we\'ll help you pace it.',
+    score: 72,
     drivers: [
-      { label: 'Sleep', detail: '4h 56m, two short nights', icon: Icon.Sleep, value: '-31%', meter: 20, tone: 'watch' },
-      { label: 'HRV', detail: '18% under baseline', icon: Icon.Heart, value: '-18%', meter: 26, tone: 'watch' },
-      { label: 'Calendar', detail: '8 meetings, back-to-back', icon: Icon.Calendar, value: 'Heavy', meter: 96, tone: 'high' },
-      { label: 'Recovery gap', detail: 'No open block until 6 PM', icon: Icon.Spark, value: 'None', meter: 92, tone: 'high' },
+      {
+        label: 'Sleep deficit',
+        detail: '5h total — 2.5h below your baseline',
+        explanation: 'Shorter sleep can make focus, emotion regulation, and physical recovery less reliable. Pulse is using this as a readiness signal, not a diagnosis.',
+        icon: Icon.Sleep,
+        value: '-2.5h',
+        meter: 26,
+        tone: 'watch',
+      },
+      {
+        label: 'HRV',
+        detail: '22 ms (down from 48 ms baseline)',
+        explanation: 'Reduced HRV can show that the body has less recovery capacity this morning, especially when it appears alongside short sleep.',
+        icon: Icon.Heart,
+        value: '-26 ms',
+        meter: 30,
+        tone: 'watch',
+      },
+      {
+        label: 'Resting signals',
+        detail: 'Heart rate and breathing are above your baseline',
+        explanation: 'Higher resting heart rate, slightly faster breathing, micromovements, and a small temperature shift can all add context when the body is under strain.',
+        icon: Icon.Heart,
+        value: '+12 bpm',
+        meter: 64,
+        tone: 'watch',
+      },
+      {
+        label: 'High-demand schedule',
+        detail: 'Continuous classes + 11 AM midterm',
+        explanation: 'A long class block from 9 AM-2 PM and a midterm at 11 AM leave less room to recover before the evening study group.',
+        icon: Icon.Calendar,
+        value: 'Dense',
+        meter: 88,
+        tone: 'high',
+      },
+      {
+        label: 'Recovery gap',
+        detail: '3:30 PM is your lowest-load recovery window',
+        explanation: 'The 3:30-4:00 PM gap is early enough to help before the evening, and short enough that it should not disrupt the rest of the schedule.',
+        icon: Icon.Spark,
+        value: '3:30',
+        meter: 70,
+        tone: 'good',
+      },
     ],
-    action: { title: 'Draft a meeting move', detail: 'Move the 4 PM sync to tomorrow morning and open a recovery block.', cta: 'Draft move' },
+    action: { title: 'A good time to reset: 3:30–4:00 PM', detail: 'Your schedule opens up here, making it a good moment to pause and recharge before your study group.' },
   },
 }
 
 const weekRows = [
-  { day: 'Mon', date: 'Apr 28', state: 'Steady', load: 32, sleep: '7h 51m', note: '2 buffers held' },
-  { day: 'Tue', date: 'Apr 29', state: 'Steady', load: 28, sleep: '7h 32m', note: 'No nudges' },
-  { day: 'Wed', date: 'Apr 30', state: 'Elevated', load: 64, sleep: '6h 14m', note: 'Afternoon stack' },
+  { day: 'Mon', date: 'Apr 28', state: 'Low load', load: 32, sleep: '7h 51m', note: '2 buffers held' },
+  { day: 'Tue', date: 'Apr 29', state: 'Low load', load: 28, sleep: '7h 32m', note: 'No nudges' },
+  { day: 'Wed', date: 'Apr 30', state: 'Steady load', load: 64, sleep: '6h 14m', note: 'Afternoon stack' },
   { day: 'Thu', date: 'May 01', state: 'High load', load: 82, sleep: '5h 08m', note: 'Roadmap review' },
-  { day: 'Fri', date: 'May 02', state: 'Elevated', load: 68, sleep: '5h 48m', note: 'Today', today: true },
+  { day: 'Fri', date: 'May 02', state: 'High load', load: 68, sleep: '5h 48m', note: 'Today', today: true },
 ]
 
 const heatRows = [
@@ -229,17 +246,17 @@ const historyEvents = [
   { when: 'Wed 4:00 PM', name: 'Eng leadership sync', effect: '+24 load', detail: '4 of 4 weeks' },
   { when: 'Thu 3:00 PM', name: 'Roadmap review', effect: '+19 load', detail: '3 of 4 weeks' },
   { when: 'Tue 9:00 AM', name: '1:1 with Priya', effect: '+8 load', detail: 'mild watch' },
-  { when: 'Fri 9:30 AM', name: 'Design review', effect: '-6 load', detail: 'steady window' },
+  { when: 'Fri 9:30 AM', name: 'Design review', effect: '-6 load', detail: 'low load window' },
 ]
 
 const scripts: Record<MessageScript, { label: string; messages: Array<{ from: 'in' | 'out' | 'tap'; text?: string; taps?: string[] }> }> = {
   morning: {
     label: 'Morning brief',
     messages: [
-      { from: 'in', text: 'Morning James, your body is showing elevated load today. The main drivers look like lower sleep, lower HRV, and a packed afternoon.' },
-      { from: 'in', text: 'Want me to protect 3:30-4:00 for a reset? Nothing on your calendar needs that slot.' },
-      { from: 'out', text: 'Yeah, hold it.' },
-      { from: 'in', text: "Done. I'll text you a few minutes before. No pressure to take it." },
+      { from: 'in', text: 'Morning Alex. High load today: 5h sleep, lower HRV, and class from 9-2 with an 11 AM midterm.' },
+      { from: 'in', text: 'Use your 3:30 PM gap for a short reset or nap. Open Pulse for the details.' },
+      { from: 'out', text: 'Hold 3:30.' },
+      { from: 'in', text: "Done. I'll remind you a few minutes before." },
       { from: 'tap', taps: ['Move earlier', 'Snooze'] },
     ],
   },
@@ -268,7 +285,7 @@ const responseModes: Record<ResponseMode, { label: string; detail: string; previ
   brief: {
     label: 'Brief',
     detail: 'Short nudges with one clear next step.',
-    preview: 'Elevated load today. Want me to hold 3:30?',
+    preview: 'High load today. Want me to hold 3:30?',
   },
   gentle: {
     label: 'Gentle',
@@ -278,7 +295,7 @@ const responseModes: Record<ResponseMode, { label: string; detail: string; previ
   direct: {
     label: 'Direct',
     detail: 'More explicit about the signal and recommended action.',
-    preview: 'Sleep, HRV, and calendar load are all elevated. Move the 4 PM sync if possible.',
+    preview: 'Sleep, HRV, and schedule load are high. Use 3:30 PM for a reset if possible.',
   },
   quiet: {
     label: 'Quiet',
@@ -303,7 +320,6 @@ function PulseApp() {
     phoneNumber: '',
   })
   const [view, setView] = useState<ViewId>('today')
-  const [stressState, setStressState] = useState<StressState>('elevated')
   const [sources, setSources] = useState<Source[]>(initialSources)
   const [messageScript, setMessageScript] = useState<MessageScript>('morning')
   const [responseMode, setResponseMode] = useState<ResponseMode>('gentle')
@@ -311,9 +327,9 @@ function PulseApp() {
   const [calendarHolds, setCalendarHolds] = useState(true)
   const [supportMode, setSupportMode] = useState(false)
   const [activity, setActivity] = useState<Activity[]>([
-    { id: 1, title: 'Sent morning brief', detail: 'Flagged lower sleep and dense afternoon.', time: '9:14 AM' },
-    { id: 2, title: 'Calendar hold drafted', detail: 'Waiting for confirmation before creating the block.', time: '9:16 AM', tone: 'action' },
-    { id: 3, title: 'Quiet hours respected', detail: 'No nudges between 9 PM and 8 AM.', time: 'Last night', tone: 'quiet' },
+    { id: 1, title: 'Morning brief delivered', detail: 'Highlighted sleep deficit and a dense schedule.', time: '9:14 AM' },
+    { id: 2, title: 'Recovery window identified', detail: '3:30–4:00 PM available before your study group.', time: '9:15 AM', tone: 'action' },
+    { id: 3, title: 'Read body signals', detail: 'Sleep, HRV, heart rate, breathing, and temperature.', time: 'Just now', tone: 'quiet' },
   ])
 
   const addActivity = (title: string, detail: string) => {
@@ -341,7 +357,7 @@ function PulseApp() {
 
   const completeOnboarding = () => {
     setSources((items) => items.map((source) => ({ ...source, connected: true, lastSync: 'Just now' })))
-    addActivity('Pulse setup complete', 'Google Calendar, Oura, and phone placeholders are ready for backend connection.')
+    addActivity('Daily brief generated', 'Combined Oura signals with today’s schedule to assess load.')
     setIsLoading(true)
   }
 
@@ -350,8 +366,6 @@ function PulseApp() {
     setIsOnboarded(true)
     window.scrollTo({ top: 0, behavior: 'auto' })
   }, [])
-
-  const currentTitle = viewLabels[view]
 
   if (showSplash) {
     return <SplashScreen onComplete={() => setShowSplash(false)} />
@@ -369,12 +383,9 @@ function PulseApp() {
     <main className="product-root">
       <Sidebar activeView={view} onViewChange={selectView} />
       <section className="product-main">
-        <TopBar title={currentTitle} onSync={() => addActivity('Manual sync complete', 'Mock data refreshed locally.')} />
         {view === 'today' && (
           <TodayView
             activity={activity}
-            state={stressState}
-            onStateChange={setStressState}
           />
         )}
         {view === 'week' && <WeekView />}
@@ -399,6 +410,14 @@ function PulseApp() {
             onToggleSource={toggleSource}
           />
         )}
+        <footer className="ob-footer">
+          <div className="ob-footer-links">
+            <span>Terms &amp; Conditions</span>
+            <span>Privacy Policy</span>
+            <span>Accessibility</span>
+            <span>Security Center</span>
+          </div>
+        </footer>
       </section>
     </main>
   )
@@ -577,7 +596,7 @@ function OnboardingFlow({
 
 function Sidebar({ activeView, onViewChange }: { activeView: ViewId; onViewChange: (view: ViewId) => void }) {
   return (
-    <aside className="sidebar">
+    <header className="sidebar">
       <div className="brand-block">
         <span className="brand-mark" />
         <div>
@@ -595,122 +614,224 @@ function Sidebar({ activeView, onViewChange }: { activeView: ViewId; onViewChang
             </button>
           )
         })}
+        {fakeNavItems.map((item) => {
+          const FakeIcon = item.icon
+          return (
+            <button key={item.label} className="fake-tab" type="button" aria-disabled="true" tabIndex={-1}>
+              <FakeIcon size={18} />
+              {item.label}
+            </button>
+          )
+        })}
       </nav>
-    </aside>
-  )
-}
-
-function TopBar({ title }: { title: string }) {
-  return (
-    <header className="topbar">
-      <div>
-        <span className="eyebrow">Friday, May 2</span>
-        <h1>{title}</h1>
-      </div>
     </header>
   )
 }
 
 const driverDisplayLabel: Record<string, string> = {
-  'HRV': 'Body strain',
-  'Recovery gap': 'Recovery time',
+  'HRV': 'Reduced HRV',
+  'Resting signals': 'Elevated physiological signals',
+  'Recovery gap': 'Optimal recovery window',
   'Recovery': 'Recovery space',
 }
 
 function TodayView({
   activity,
-  state,
-  onStateChange,
 }: {
   activity: Activity[]
-  state: StressState
-  onStateChange: (state: StressState) => void
 }) {
-  const copy = stateCopy[state]
-  const isCalm = state === 'steady'
+  const state: StressState = 'high'
+  const copy = stateCopy.high
+  const rootRef = useRef<HTMLDivElement>(null)
+  const [expandedDrivers, setExpandedDrivers] = useState<string[]>([])
+  const [resetScheduled, setResetScheduled] = useState(false)
+
+  useEffect(() => {
+    const root = rootRef.current
+    if (!root) return
+
+    const revealItems = Array.from(root.querySelectorAll<HTMLElement>('.td-scroll-reveal'))
+    if (revealItems.length === 0) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return
+          entry.target.classList.add('is-visible')
+          observer.unobserve(entry.target)
+        })
+      },
+      {
+        rootMargin: '0px 0px -12% 0px',
+        threshold: 0.12,
+      },
+    )
+
+    revealItems.forEach((item) => observer.observe(item))
+    return () => observer.disconnect()
+  }, [])
 
   return (
-    <div className="td-root" key={state}>
-      <div className="state-tabs td-tabs" role="tablist" aria-label="Stress state">
-        {(Object.keys(stateCopy) as StressState[]).map((item) => (
-          <button key={item} className={state === item ? 'active' : ''} type="button" onClick={() => onStateChange(item)}>
-            {stateCopy[item].label}
-          </button>
-        ))}
-      </div>
-
-      <section className="td-hero td-reveal">
-        <h2 className="td-headline">{copy.headline}</h2>
-        <p className="td-summary">{copy.summary}</p>
+    <div className="td-root" key={state} ref={rootRef}>
+      <section className="td-hero-card td-reveal">
+        <div className="date-line td-hero-kicker">
+          <time dateTime="2026-05-02">
+            <strong className="td-hero-date-today">Today</strong>
+            <span className="td-hero-date-suffix"> · May 2</span>
+          </time>
+        </div>
+        <div className="td-hero-orb">
+          <SignalOrb score={copy.score} state={state} />
+        </div>
+        <div className="td-hero-copy">
+          <h2 className="td-headline">{copy.headline}</h2>
+          <p className="td-summary">{copy.summary}</p>
+        </div>
+        <div
+          className="td-hero-status"
+          role={resetScheduled ? 'status' : undefined}
+          aria-live={resetScheduled ? 'polite' : undefined}
+        >
+          {!resetScheduled ? (
+            <button
+              type="button"
+              className="td-hero-reset-add"
+              onClick={() => setResetScheduled(true)}
+            >
+              Add 3:00 PM reset
+            </button>
+          ) : (
+            <div className="td-hero-status-card td-hero-status-card--scheduled">
+              <p className="td-hero-status-headline">
+                <span>Reset scheduled</span>
+                <Icon.Check size={16} className="td-hero-status-headline-check" aria-hidden="true" />
+              </p>
+              <p className="td-hero-status-detail">Dexter Lawn · 3:00–3:30 PM</p>
+              <p className="td-hero-status-line">We’ll hold this time for you.</p>
+            </div>
+          )}
+        </div>
       </section>
 
-      <div className={`td-action-card td-reveal${isCalm ? ' td-action-card--calm' : ''}`}>
-        <span className="eyebrow">{isCalm ? 'All clear' : 'Suggested reset'}</span>
-        <h3 className="td-action-title">{copy.action.title}</h3>
-        <p>{copy.action.detail}</p>
-        {!isCalm && (
-          <div className="td-action-btns">
-            <button type="button">{copy.action.cta}</button>
-            <button type="button">Not now</button>
-          </div>
-        )}
+      <div className="td-reset-card td-scroll-reveal">
+        <span className="td-reset-eyebrow">Why this helps</span>
+        <h3 className="td-reset-title">{copy.action.title}</h3>
+        <p className="td-reset-sub">{copy.action.detail}</p>
       </div>
 
-      <div className="td-body td-reveal">
-        <div className="td-drivers">
-          <span className="eyebrow">Why this matters</span>
-          {copy.drivers.map((driver) => (
-            <TdDriverItem key={driver.label} driver={driver} />
+      <div className="td-body">
+        <div className="td-why td-scroll-reveal">
+          <span className="td-section-label">Why this matters</span>
+          {copy.drivers.map((driver, index) => (
+            <TdWhyRow
+              key={driver.label}
+              label={driverDisplayLabel[driver.label] ?? driver.label}
+              detail={driver.detail}
+              explanation={driver.explanation}
+              revealDelay={`${0.08 + index * 0.08}s`}
+              tone={driver.tone}
+              isExpanded={expandedDrivers.includes(driver.label)}
+              onToggle={() =>
+                setExpandedDrivers((current) =>
+                  current.includes(driver.label)
+                    ? current.filter((label) => label !== driver.label)
+                    : [...current, driver.label],
+                )
+              }
+            />
           ))}
         </div>
-        <div className="td-calendar">
-          <span className="eyebrow">Your day</span>
-          <TdCalendarList state={state} />
+        <div className="td-day-section td-scroll-reveal" style={{ transitionDelay: '0.08s' }}>
+          <span className="td-section-label">Your day</span>
+          <TdCalendarList />
         </div>
       </div>
 
-      <div className="td-activity td-reveal">
-        <span className="eyebrow">What Pulse did</span>
-        <ActivityList activity={activity} />
+      <div className="td-handled td-scroll-reveal">
+        <span className="td-section-label">What Pulse handled</span>
+        <TdHandledList activity={activity} />
       </div>
     </div>
   )
 }
 
-function TdDriverItem({
-  driver,
+function TdWhyRow({
+  label,
+  detail,
+  explanation,
+  revealDelay,
+  tone,
+  isExpanded,
+  onToggle,
 }: {
-  driver: { label: string; detail: string; tone: 'good' | 'watch' | 'high' }
+  label: string
+  detail: string
+  explanation: string
+  revealDelay: string
+  tone: 'good' | 'watch' | 'high'
+  isExpanded: boolean
+  onToggle: () => void
 }) {
-  const label = driverDisplayLabel[driver.label] ?? driver.label
   return (
-    <div className="td-driver-item" data-tone={driver.tone}>
-      <span className="td-driver-dot" />
-      <span>
-        <strong>{label}</strong>
-        <small>{driver.detail}</small>
-      </span>
-    </div>
+    <button
+      className="td-why-row td-scroll-reveal"
+      data-tone={tone}
+      type="button"
+      style={{ transitionDelay: revealDelay }}
+      onClick={onToggle}
+      aria-expanded={isExpanded}
+    >
+      <span className="td-why-dot" />
+      <div>
+        <span className="td-why-main">{label}</span>
+        <span className="td-why-detail">{detail}</span>
+      </div>
+      <span className="td-why-chevron" aria-hidden="true" />
+      <div className="td-why-expand-wrap" aria-hidden={!isExpanded}>
+        <span>{explanation}</span>
+      </div>
+    </button>
   )
 }
 
-function TdCalendarList({ state }: { state: StressState }) {
-  const highlight = state !== 'steady'
+function TdCalendarList() {
   const items: Array<[string, string, string, boolean]> = [
-    ['11:00 AM', 'Design review', '45 min', false],
-    ['1:30 PM', 'Product sync', '30 min', false],
-    ['3:30 PM', highlight ? 'Suggested hold' : 'Open window', highlight ? 'Protected time' : 'Free block', highlight],
-    ['4:00 PM', 'Engineering sync', highlight ? 'Can move' : '30 min', false],
+    ['9:00 AM', 'Class block', 'Runs until 2:00 PM', false],
+    ['11:00 AM', 'Midterm exam', 'High-focus event', false],
+    ['3:30 PM', 'Recovery window (optimal)', 'Lowest stress period — ideal for reset', true],
+    ['5:00 PM', 'Study group', '90 min', false],
   ]
   return (
     <div className="td-cal-list">
-      {items.map(([time, title, meta, hl]) => (
-        <div key={time} className={`td-cal-item${hl ? ' td-cal-item--highlight' : ''}`}>
+      {items.map(([time, title, meta, hl], index) => (
+        <div
+          key={time}
+          className={`td-cal-item td-scroll-reveal${hl ? ' td-cal-item--highlight' : ''}`}
+          style={{ transitionDelay: `${0.08 + index * 0.08}s` }}
+        >
           <span className="td-cal-time">{time}</span>
           <span className="td-cal-event">
             <strong>{title}</strong>
             <small>{meta}</small>
           </span>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+function TdHandledList({ activity }: { activity: Activity[] }) {
+  return (
+    <div className="td-handled-list">
+      {activity.slice(0, 3).map((item, index) => (
+        <div
+          key={item.title}
+          className="td-handled-card td-scroll-reveal"
+          style={{ transitionDelay: `${0.08 + index * 0.08}s` }}
+        >
+          <strong>{item.title}</strong>
+          <small>{item.detail}</small>
+          <em>{item.time}</em>
         </div>
       ))}
     </div>
@@ -753,7 +874,7 @@ function WeekView() {
       </Panel>
 
       <section className="two-column">
-        <InsightCard title="Pattern Pulse is watching" body="Wednesday and Thursday afternoons account for most high-load hours. The shared driver is back-to-back meetings after 2 PM with no recovery buffer." />
+        <InsightCard title="Pattern Pulse is watching" body="Wednesday and Thursday afternoons account for most high load hours. The shared driver is back-to-back meetings after 2 PM with no recovery buffer." />
         <InsightCard title="Backend placeholder" body="Connect this view to hourly load, calendar event density, and accepted nudge telemetry when APIs are available." quiet />
       </section>
     </div>
@@ -812,9 +933,9 @@ function HistoryView() {
   return (
     <div className="view-stack">
       <section className="metric-grid">
-        <MetricCard label="Steady days" value="19" detail="Last 30 days" />
-        <MetricCard label="Elevated days" value="11" detail="Most often Wed/Thu" />
-        <MetricCard label="High-load days" value="5" detail="Down 2 from prior month" />
+        <MetricCard label="Low load days" value="19" detail="Last 30 days" />
+        <MetricCard label="Steady load days" value="11" detail="Most often Wed/Thu" />
+        <MetricCard label="High load days" value="5" detail="Down 2 from prior month" />
         <MetricCard label="Accepted nudges" value="28" detail="Out of 41 sent" />
       </section>
 
@@ -835,7 +956,7 @@ function HistoryView() {
             ))}
           </div>
         </Panel>
-        <InsightCard title="What Pulse noticed" body="Weeks that start after a quiet Sunday have fewer high-load days. Mornings before 11 AM stay steady on 26 of 30 days." />
+        <InsightCard title="What Pulse noticed" body="Weeks that start after a quiet Sunday have fewer high load days. Mornings before 11 AM stay low load on 26 of 30 days." />
       </section>
     </div>
   )
@@ -882,7 +1003,7 @@ function SettingsView({
         <SettingsRow icon={Icon.Calendar} title="Calendar holds" detail="Allow Pulse to draft recovery blocks. Always asks first.">
           <Toggle enabled={calendarHolds} onChange={onCalendarHoldsChange} />
         </SettingsRow>
-        <SettingsRow icon={Icon.Heart} title="Support mode" detail="Sit-with-you check-ins on high-load days. Off by default.">
+        <SettingsRow icon={Icon.Heart} title="Support mode" detail="Sit-with-you check-ins on high load days. Off by default.">
           <Toggle enabled={supportMode} onChange={onSupportModeChange} />
         </SettingsRow>
       </SettingsGroup>
@@ -913,74 +1034,6 @@ function Panel({ title, children, className = '' }: { title: string; children: R
       </div>
       {children}
     </section>
-  )
-}
-
-function DriverRow({
-  driver,
-}: {
-  driver: {
-    label: string
-    detail: string
-    icon: IconComponent
-    value: string
-    meter: number
-    tone: 'good' | 'watch' | 'high'
-  }
-}) {
-  const DriverIcon = driver.icon
-  return (
-    <div className="driver-row">
-      <span className="driver-icon">
-        <DriverIcon size={16} />
-      </span>
-      <span>
-        <strong>{driver.label}</strong>
-        <small>{driver.detail}</small>
-      </span>
-      <span className="meter" data-tone={driver.tone}>
-        <i style={{ width: `${driver.meter}%` }} />
-      </span>
-      <em>{driver.value}</em>
-    </div>
-  )
-}
-
-function CalendarList() {
-  const items = [
-    ['11:00 AM', 'Design review', '45 min'],
-    ['1:30 PM', 'Product sync', '30 min'],
-    ['3:30 PM', 'Open window', 'Suggested hold'],
-    ['4:00 PM', 'Engineering sync', 'Can move'],
-  ]
-
-  return (
-    <div className="calendar-list">
-      {items.map(([time, title, meta]) => (
-        <div key={`${time}-${title}`}>
-          <span>{time}</span>
-          <strong>{title}</strong>
-          <small>{meta}</small>
-        </div>
-      ))}
-    </div>
-  )
-}
-
-function ActivityList({ activity }: { activity: Activity[] }) {
-  return (
-    <div className="activity-list">
-      {activity.map((item) => (
-        <div key={item.id} className={item.tone ?? ''}>
-          <i />
-          <span>
-            <strong>{item.title}</strong>
-            <small>{item.detail}</small>
-          </span>
-          <em>{item.time}</em>
-        </div>
-      ))}
-    </div>
   )
 }
 

@@ -25,11 +25,11 @@ function buildSummary(hr: number | null | undefined, avg: number | null | undefi
 
 /**
  * Returns a one-sentence interpretation based on resting HR deviation from the 7-day average.
- * Thresholds: >5bpm above = elevated stress signal, 2–5bpm above = slight elevation,
+ * Thresholds: >5bpm above = strong above-baseline signal, 2–5bpm above = slight elevation,
  * within 2bpm = normal, below = good cardiovascular recovery.
  */
 function buildInterpretation(hr: number, avg: number): string {
-  const diff = hr - avg // positive = above average (elevated)
+  const diff = hr - avg // positive = above average
 
   if (diff > 5) {
     return `Resting HR is ${diff}bpm above your norm — your heart is working harder at rest, a reliable marker of stress or incomplete recovery.`

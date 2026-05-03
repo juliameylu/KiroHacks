@@ -54,7 +54,7 @@ Returns the cached assessment. Does not trigger the pipeline.
 **Response 200:**
 ```typescript
 {
-  stress_level: "High" | "Elevated" | "Calm";
+  stress_level: "High load" | "Steady load" | "Low load";
   drivers: string[];
   action_recommendation: string;
   summary: string;
@@ -154,7 +154,7 @@ You are a wellness assistant that helps users understand their predicted stress 
 
 You MUST respond with valid JSON only — no markdown, no explanation, no extra text. The JSON must match this exact schema:
 {
-  "stress_level": "High" | "Elevated" | "Calm",
+  "stress_level": "High load" | "Steady load" | "Low load",
   "drivers": [<array of 2-4 short strings naming contributing factors>],
   "action_recommendation": "<one specific, actionable suggestion — if a free slot exists, reference it by time>",
   "summary": "<1-2 sentences in plain language, personalised to the user's name, describing their predicted stress load>"
@@ -243,7 +243,7 @@ function deterministicAssessment(signals, schedule) {
   const bothHigh = physiological_strain === 'high' && schedule_load === 'high';
   const oneHigh = physiological_strain === 'high' || schedule_load === 'high';
 
-  const stress_level = bothHigh ? 'High' : oneHigh ? 'Elevated' : 'Calm';
+  const stress_level = bothHigh ? 'High load' : oneHigh ? 'Steady load' : 'Low load';
 
   const drivers = [];
   if (physiological_strain === 'high') drivers.push('Below-baseline recovery signals');
@@ -308,7 +308,7 @@ App loads
 
 **LoadingScreen** — cycles through 4 messages with a 500ms interval. Tracks elapsed time; only navigates away once both the API call resolves AND 2 seconds have passed.
 
-**StressHeader** — renders a coloured badge for stress_level (red = High, amber = Elevated, green = Calm). Shows `summary` below.
+**StressHeader** — renders a coloured badge for stress_level (red = High load, amber = Steady load, green = Low load). Shows `summary` below.
 
 **ActionBanner** — visually emphasised block (distinct background colour) showing `action_recommendation`. This is the primary CTA.
 
@@ -346,7 +346,7 @@ Fetches `GET /api/assessment` on mount. If 503, automatically calls `POST /api/r
 | Concern | Behaviour |
 |---------|-----------|
 | Auth | None required. All tokens loaded from env vars on Backend at startup. |
-| Mock mode | `MOCK_MODE=true` skips all external API calls. Fixture data represents an Elevated stress scenario: 5h sleep vs 7.5h baseline, HRV below baseline, HR above baseline, midterm at 11 AM, free slot at 3:30 PM. No real credentials needed. |
+| Mock mode | `MOCK_MODE=true` skips all external API calls. Fixture data represents a High load scenario: 5h sleep vs 7.5h baseline, HRV below baseline, HR above baseline, midterm at 11 AM, free slot at 3:30 PM. No real credentials needed. |
 | App entry | Loading screen → Dashboard. No login gate. |
 | Token refresh | Backend handles silently before any API call that returns 401. |
 | Client-side tokens | Never sent to Frontend. Not in any API response. |

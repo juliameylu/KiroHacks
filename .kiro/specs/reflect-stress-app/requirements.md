@@ -17,7 +17,7 @@ The demo targets a single preconfigured user ("Alex") and runs in **demo mode**:
 - **LLM_Client**: The Backend module responsible for constructing prompts and calling the Claude API (OpenClaw) to produce stress assessments.
 - **SMS_Client**: The Backend module responsible for sending morning messages via the Twilio API.
 - **Cache**: An in-memory and file-backed store on the Backend that holds the most recent pipeline result so the App loads instantly during the demo.
-- **Stress_Level**: A categorical label — one of "High", "Elevated", or "Calm" — representing the user's predicted stress load for the day, based on recovery signals and schedule. "High" indicates the top tier, "Elevated" the middle tier, and "Calm" the lowest tier.
+- **Stress_Level**: A categorical label — one of "High load", "Steady load", or "Low load" — representing the user's predicted stress load for the day, based on recovery signals and schedule. "High load" indicates the top tier, "Steady load" the middle tier, and "Low load" the lowest tier.
 - **Morning_Message**: A short, proactive notification (SMS + in-app) sent each morning summarising the Stress_Level and one actionable recommendation.
 - **Action_Recommendation**: A time-specific suggestion (e.g., "Use your 3:30 pm gap for a short reset") derived from free calendar slots and biometric signals.
 - **Expandable_Card**: A tappable UI element on the App's landing page that shows a summary label and expands to reveal detail text.
@@ -39,7 +39,7 @@ The demo targets a single preconfigured user ("Alex") and runs in **demo mode**:
 1. THE Backend SHALL load the following values from environment variables or a config file at startup: `USER_NAME` (default "Alex"), `USER_PHONE`, `OURA_ACCESS_TOKEN`, `OURA_REFRESH_TOKEN`, `GOOGLE_ACCESS_TOKEN`, `GOOGLE_REFRESH_TOKEN`.
 2. THE Backend SHALL support a `MOCK_MODE` environment variable. WHEN `MOCK_MODE=true`, THE Backend SHALL skip all external API calls and serve responses entirely from fixture data, requiring no real credentials.
 3. WHEN `MOCK_MODE=true` and `POST /api/refresh` is called, THE Backend SHALL run the full pipeline using fixture data and return a complete assessment response without contacting Oura, Google Calendar, or the LLM.
-4. THE default mock fixture SHALL represent an Elevated stress scenario: 5 hours of sleep vs 7.5-hour baseline, HRV below baseline, resting heart rate above baseline, breathing rate slightly elevated, temperature slightly elevated, classes from 9 AM–2 PM, midterm at 11 AM, and a free slot at 3:30 PM.
+4. THE default mock fixture SHALL represent a High load stress scenario: 5 hours of sleep vs 7.5-hour baseline, HRV below baseline, resting heart rate above baseline, breathing rate slightly above baseline, temperature slightly above baseline, classes from 9 AM–2 PM, midterm at 11 AM, and a free slot at 3:30 PM.
 5. THE Backend SHALL handle token refresh automatically for both Oura and Google OAuth tokens using the stored refresh tokens, without any user interaction (when not in MOCK_MODE).
 6. THE App SHALL NOT display a login screen, OAuth consent screen, or account-linking flow as part of the required user journey.
 7. WHEN the App loads, THE App SHALL navigate directly from a loading screen to the dashboard without requiring any user authentication action.
@@ -119,12 +119,12 @@ The demo targets a single preconfigured user ("Alex") and runs in **demo mode**:
    - `physiological_strain`: "high" if sleep is below `sleep_baseline_hours` AND HRV is below `hrv_7d_avg` AND resting HR is above `resting_hr_7d_avg`; otherwise "normal".
    - `schedule_load`: "high" if the event count is dense (≥5 events) OR any event title contains keywords indicating importance (e.g., "exam", "interview", "meeting", "deadline", "presentation"); otherwise "normal".
 2. WHEN the Oura and Calendar data are available, THE LLM_Client SHALL construct a prompt containing: the user's name, all Biometric_Indicators with their baselines, the day's event list, the identified free time slots, `physiological_strain`, and `schedule_load`.
-3. THE LLM_Client prompt MUST constrain the LLM to return `stress_level` as exactly one of "High", "Elevated", or "Calm" and `action_recommendation` as exactly one actionable suggestion.
+3. THE LLM_Client prompt MUST constrain the LLM to return `stress_level` as exactly one of "High load", "Steady load", or "Low load" and `action_recommendation` as exactly one actionable suggestion.
 4. WHEN a free time slot exists in the schedule, THE LLM_Client prompt MUST instruct the LLM to map the `action_recommendation` to a specific free slot time.
 5. WHEN the Claude API returns a valid structured response, THE Backend SHALL store the assessment in the Cache alongside the biometric and schedule data.
 6. IF the Claude API returns a malformed response that cannot be parsed as the expected JSON structure, THEN THE LLM_Client SHALL retry the request once with the same prompt before falling back to deterministic output.
 7. IF the Claude API returns an error, times out after 15 seconds, or fails after one retry, THEN THE Backend SHALL generate deterministic fallback output using these rules:
-   - `stress_level`: "High" if both `physiological_strain` and `schedule_load` are "high"; "Elevated" if exactly one is "high"; "Calm" otherwise.
+   - `stress_level`: "High load" if both `physiological_strain` and `schedule_load` are "high"; "Steady load" if exactly one is "high"; "Low load" otherwise.
    - `drivers`: a list derived from whichever signals are "high".
    - `action_recommendation`: the first available free slot if one exists, otherwise "Take a short break when you can".
    - `summary`: a plain-language sentence constructed from the derived signals.
@@ -142,7 +142,7 @@ The demo targets a single preconfigured user ("Alex") and runs in **demo mode**:
 1. THE Backend SHALL expose a `GET /api/assessment` endpoint that returns a JSON object with exactly the following shape:
    ```json
    {
-     "stress_level": "High | Elevated | Calm",
+     "stress_level": "High load | Steady load | Low load",
      "drivers": ["string"],
      "action_recommendation": "string",
      "summary": "string",

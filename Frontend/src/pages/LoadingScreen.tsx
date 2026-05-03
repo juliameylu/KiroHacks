@@ -25,7 +25,7 @@ export default function LoadingScreen({ onSuccess, onError }: LoadingScreenProps
     data: null,
     error: null,
   })
-  const startTimeRef = useRef(Date.now())
+  const startTimeRef = useRef(0)
   const doneRef = useRef(false)
 
   // Advance through steps on a fixed interval
@@ -43,6 +43,7 @@ export default function LoadingScreen({ onSuccess, onError }: LoadingScreenProps
   // Fetch assessment data, respecting the 3s minimum display time
   useEffect(() => {
     let cancelled = false
+    startTimeRef.current = Date.now()
 
     async function fetchData() {
       try {

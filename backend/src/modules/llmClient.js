@@ -11,7 +11,7 @@
  *
  * AssessmentResult shape:
  *   {
- *     stress_level: "High" | "Elevated" | "Calm",
+ *     stress_level: "High load" | "Steady load" | "Low load",
  *     drivers: string[],
  *     action_recommendation: string,
  *     summary: string,
@@ -30,7 +30,7 @@ const CLAUDE_MODEL = 'claude-3-5-haiku-20241022';
 const MAX_TOKENS = 512;
 const TIMEOUT_MS = 15_000;
 
-const VALID_STRESS_LEVELS = new Set(['Elevated', 'High', 'Calm']);
+const VALID_STRESS_LEVELS = new Set(['High load', 'Steady load', 'Low load']);
 
 // ── System prompt ─────────────────────────────────────────────────────────────
 
@@ -42,11 +42,11 @@ Rules:
 - summary MUST be under 60 words, written in plain language, personalised to the user's name
 - action_recommendation MUST reference a specific free slot time if one is available
 - drivers should be 2–4 short phrases naming the key contributing factors
-- stress_level must be exactly one of: "Elevated", "High", or "Calm"
+- stress_level must be exactly one of: "High load", "Steady load", or "Low load"
 
 You MUST respond with valid JSON only — no markdown, no explanation, no extra text. The JSON must match this exact schema:
 {
-  "stress_level": "Elevated" | "High" | "Calm",
+  "stress_level": "High load" | "Steady load" | "Low load",
   "drivers": [<array of 2-4 short strings naming contributing factors>],
   "action_recommendation": "<one specific, actionable suggestion — if a free slot exists, reference it by time>",
   "summary": "<under 60 words, plain language, personalised to the user's name>"
@@ -216,8 +216,8 @@ function deterministicAssessment(signals, schedule, name) {
   const bothHigh = physiological_strain === 'high' && schedule_load === 'high';
   const oneHigh = physiological_strain === 'high' || schedule_load === 'high';
 
-  // Calm / Elevated / High — no "Moderate"
-  const stress_level = bothHigh ? 'High' : oneHigh ? 'Elevated' : 'Calm';
+  // Low load / Steady load / High load
+  const stress_level = bothHigh ? 'High load' : oneHigh ? 'Steady load' : 'Low load';
 
   const drivers = [];
   if (physiological_strain === 'high') {
@@ -234,9 +234,11 @@ function deterministicAssessment(signals, schedule, name) {
     ? `Use your ${slotTime} gap for a 20-minute walk — it's your best window to lower cortisol before the evening.`
     : 'Take a short break when you can to help your nervous system recover.';
 
-  const summary = stress_level === 'Elevated'
+  const summary = stress_level === 'High load'
     ? `Your recovery signals are below baseline and your schedule is demanding — your nervous system is already under load. Protect your free time today, ${name}.`
-    : `Your recovery signals look stable today, ${name}. Stay consistent and you should handle the day well.`;
+    : stress_level === 'Steady load'
+      ? `One part of your day is adding load, ${name}. Keep your free time protected and you should have room to recover.`
+      : `Your recovery signals look stable today, ${name}. Stay consistent and you should handle the day well.`;
 
   return { stress_level, drivers, action_recommendation, summary };
 }
