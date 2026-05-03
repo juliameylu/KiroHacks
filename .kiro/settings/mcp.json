@@ -2,19 +2,49 @@
   "mcpServers": {
     "fetch": {
       "command": "uvx",
-      "args": [
-        "mcp-server-fetch"
-      ],
+      "args": ["mcp-server-fetch"],
       "env": {},
-      "disabled": true,
-      "autoApprove": []
+      "disabled": false,
+      "autoApprove": [
+        "fetch_url",
+        "fetch_json"
+      ]
     },
     "figma": {
       "url": "https://mcp.figma.com/mcp",
       "autoApprove": [
         "get_design_context",
         "get_screenshot",
-        "get_metadata"
+        "get_metadata",
+        "get_components",
+        "get_styles"
+      ]
+    },
+    "iteration": {
+      "command": "uvx",
+      "args": ["mcp-server-iteration"],
+      "autoApprove": [
+        "propose_refinement",
+        "compare_versions",
+        "suggest_improvements"
+      ]
+    },
+    "validation": {
+      "command": "uvx",
+      "args": ["mcp-server-validation"],
+      "autoApprove": [
+        "validate_json",
+        "check_schema",
+        "enforce_format"
+      ]
+    },
+    "simulation": {
+      "command": "uvx",
+      "args": ["mcp-server-simulation"],
+      "autoApprove": [
+        "generate_mock_data",
+        "simulate_scenarios",
+        "check_consistency"
       ]
     }
   }
