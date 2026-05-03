@@ -1,0 +1,16 @@
+{
+  "enabled": true,
+  "name": "Reflect Demo Guardrails",
+  "description": "Master guardrail hook for the Reflect stress copilot hackathon app. Enforces single-user scope, deterministic backend, constrained LLM output, demo reliability, and clean UX on every agent write operation.",
+  "version": "1",
+  "when": {
+    "type": "preToolUse",
+    "toolTypes": [
+      "write"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "You are working on Reflect — a single-user hackathon stress copilot app. Before writing any code, verify your change passes ALL of the following guardrails:\n\n## SCOPE\n- Single user only. No auth, no OAuth, no sessions, no user IDs, no multi-tenancy.\n- No features that are not visible in the demo flow.\n- No scalability-focused design (no queues, no workers, no microservices).\n\n## BACKEND ARCHITECTURE\n- Node.js only. Keep it simple and readable.\n- Stress scoring must be deterministic: a pure function that takes biometric + calendar signals and returns { score: number, level: string, reasons: string[] }.\n- The pipeline must ALWAYS return a result — never crash. If any API fails, fall back to mock data silently.\n- Execution must complete in under 2 seconds total.\n- No unnecessary abstractions. No class hierarchies. No factory patterns. No dependency injection.\n- No async complexity beyond what is needed (no retry loops, no circuit breakers, no event emitters for simple flows).\n\n## LLM OUTPUT\n- LLM response must be under 60 words total.\n- Must include exactly three fields: stressLoad (string label), why (1–2 sentences), action (one specific actionable recommendation).\n- The action must reference the user's actual schedule — not generic wellness advice.\n- Only ONE action is allowed. Never suggest multiple things.\n- If LLM fails or returns unparseable JSON, use a deterministic fallback object — never surface an error to the UI.\n\n## FRONTEND UX\n- The user must understand their stress level within 3 seconds of the dashboard loading.\n- The UI must answer exactly three questions: (1) What's my day like? (2) Why am I stressed? (3) What should I do?\n- One clear action displayed — not a list of suggestions.\n- Strong visual hierarchy. No clutter. No placeholder text. No generic copy.\n- No loading states that last more than 2 seconds without a fallback.\n\n## MOCK DATA CONSISTENCY\n- Biometric signals must be internally consistent with the stress level output.\n- Do NOT create contradictions like: good HRV + good sleep + high stress with no calendar explanation.\n- Reasons in the output must map directly to at least one signal in the input data.\n- Mock scenarios must be believable and demo-ready.\n\n## WHAT NOT TO DO\n- Do NOT add: authentication, user accounts, databases, ORMs, Redis, message queues.\n- Do NOT add: ML models, training pipelines, embeddings, vector stores.\n- Do NOT add: multi-step wizards, settings pages, onboarding flows not in the demo.\n- Do NOT add: error boundary components that hide real issues during development.\n- Do NOT write: classes where a plain function works, abstractions for a single use case, config files for values used once.\n\nIf your change violates any rule above, revise it before writing the file."
+  }
+}

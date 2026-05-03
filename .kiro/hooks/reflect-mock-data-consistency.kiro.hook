@@ -1,0 +1,17 @@
+{
+  "enabled": true,
+  "name": "Reflect Mock Data Consistency",
+  "description": "Ensures biometric mock data aligns with stress level output — no contradictions between signals and scores, reasons must map to actual signals, demo scenarios must be believable.",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "backend/src/fixtures/*.json",
+      "backend/src/fixtures/*.js"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "A mock data or fixture file was just edited. Verify the data is internally consistent and demo-ready using these rules:\n\n## SIGNAL-TO-STRESS CONSISTENCY\n\n### High or Critical Stress requires at least 2 of:\n- HRV below baseline (e.g., < 40ms if baseline is 55ms)\n- Resting heart rate elevated (e.g., > 72 bpm if baseline is 58 bpm)\n- Sleep score below 70 or sleep duration under 6 hours\n- 3+ calendar events today, including back-to-back blocks\n- Temperature deviation (skin temp elevated > 0.5°C above baseline)\n\n### Low Stress requires at least 2 of:\n- HRV at or above baseline\n- Resting heart rate at or below baseline\n- Sleep score above 80 and duration 7+ hours\n- Fewer than 3 calendar events, with gaps between them\n- Temperature within normal range\n\n### Moderate Stress: mixed signals — some elevated, some normal. Must have a clear reason.\n\n## FORBIDDEN CONTRADICTIONS\n- ❌ HRV above baseline + sleep score 90 + stress level \"High\" (with no calendar explanation)\n- ❌ Sleep score 45 + HRV 20ms + stress level \"Low\"\n- ❌ Zero calendar events + stress level \"Critical\" (biometrics must explain it fully)\n- ❌ reasons array that mentions \"poor sleep\" when sleep score is 85+\n- ❌ reasons array that mentions \"heavy schedule\" when calendar has 1 event\n\n## REASONS MUST MAP TO SIGNALS\nEvery string in the reasons array must correspond to at least one signal in the biometric or calendar data. No reason should appear without a supporting data point.\n\n## DEMO SCENARIO CHECKLIST\nThe fixture data should tell a clear, believable story:\n- ✅ The stress level makes intuitive sense given the signals\n- ✅ A non-technical judge could look at the data and say \"yeah, that makes sense\"\n- ✅ The calendar events are realistic (meeting names, reasonable times)\n- ✅ Biometric values are within human-plausible ranges\n\nFlag any inconsistency and suggest corrected values."
+  }
+}

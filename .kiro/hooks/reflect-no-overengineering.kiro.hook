@@ -1,0 +1,16 @@
+{
+  "enabled": true,
+  "name": "Reflect Anti-Overengineering",
+  "description": "Rejects unnecessary abstractions, scalability-focused design, and features not visible in the hackathon demo. Favors simple, readable, direct code.",
+  "version": "1",
+  "when": {
+    "type": "preToolUse",
+    "toolTypes": [
+      "write"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Before writing this code, check it against the Reflect anti-overengineering rules. If any rule is violated, revise the code to be simpler before writing.\n\n## THE RULE\nWrite the simplest code that makes the demo work. Nothing more.\n\n## PATTERNS TO REJECT\n\n### Unnecessary Abstractions\n- ❌ A BaseService class that other services extend\n- ❌ A factory function that returns different implementations based on config\n- ❌ A repository pattern wrapping a single JSON file read\n- ❌ An interface or type for a value used in only one place\n- ✅ A plain function that reads the file and returns the data\n\n### Scalability Theater\n- ❌ Redis cache for a single-user app\n- ❌ A job queue for a pipeline that runs once per page load\n- ❌ Rate limiting middleware for a local demo server\n- ❌ Database migrations for data that never persists\n- ✅ A simple in-memory object or JSON file\n\n### Auth & Multi-User Scope\n- ❌ JWT tokens, sessions, cookies for auth\n- ❌ User IDs, user tables, user context in any function signature\n- ❌ OAuth flows, API key management per user\n- ✅ No auth. One user. Hardcoded or env-var API keys only.\n\n### Out-of-Scope Features\n- ❌ Settings or preferences pages\n- ❌ Historical trend views (unless explicitly in the demo script)\n- ❌ Notifications, push alerts, email\n- ❌ Onboarding flows beyond what's shown in the demo\n- ✅ Only build what a judge will see in a 3-minute demo\n\n### Code Complexity\n- ❌ More than 2 levels of async nesting\n- ❌ Custom error classes for a script that runs once\n- ❌ Dependency injection containers\n- ❌ Event-driven architecture for a request/response flow\n- ✅ async/await with a single try/catch is enough\n\n## THE TEST\nAsk yourself: \"Would removing this make the demo fail?\" If no — don't add it."
+  }
+}

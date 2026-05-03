@@ -1,0 +1,17 @@
+{
+  "enabled": true,
+  "name": "Reflect Frontend UX Guardrails",
+  "description": "Ensures the Reflect dashboard UI answers the three core questions clearly, maintains strong visual hierarchy, and shows one action — no clutter, no placeholders.",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "Frontend/src/**/*.tsx",
+      "Frontend/src/**/*.css"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "A frontend file in the Reflect stress copilot app was just edited. Verify it meets these UX guardrails:\n\n## CORE UX CONTRACT\nThe dashboard must answer exactly three questions for the user within 3 seconds:\n1. What does my day look like? (schedule/calendar context)\n2. Why am I stressed? (biometric signal reasons)\n3. What should I do about it? (one specific action)\n\nIf the edited component contributes to any of these three answers, verify it does so clearly and immediately.\n\n## VISUAL HIERARCHY\n- Stress level must be the most visually dominant element on the screen.\n- Supporting reasons should be secondary — readable but not competing.\n- The single recommended action must be clearly distinguished (button, card, or highlighted text).\n- No element should require the user to scroll to understand their stress status.\n\n## CONTENT QUALITY\n- No placeholder text (e.g., \"Lorem ipsum\", \"Coming soon\", \"TODO\", \"Sample data\").\n- No generic copy (e.g., \"Take a break\", \"Drink water\", \"Practice mindfulness\" without schedule context).\n- All displayed text must be specific to the user's actual data.\n\n## SIMPLICITY\n- No more than one primary call-to-action visible at a time.\n- No modals, drawers, or overlays unless they are part of the core demo flow.\n- No settings, preferences, or configuration UI.\n- Loading states must resolve or fall back within 2 seconds — never show a spinner indefinitely.\n\n## WHAT TO FLAG\n- Any component that renders placeholder or hardcoded generic text\n- Any layout with more than one primary action button visible simultaneously\n- Any loading state without a defined fallback\n- Any new page or route not part of the core demo flow (landing → loading → dashboard)"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "enabled": true,
+  "name": "Reflect LLM Output Control",
+  "description": "Enforces strict LLM output constraints: under 60 words, structured JSON with stressLoad/why/action fields, schedule-specific advice, one action only, and deterministic fallback on failure.",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "backend/src/modules/llmClient.js",
+      "backend/src/pipeline.js"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "The LLM client or pipeline file was just edited. Verify it meets these strict LLM output guardrails:\n\n## OUTPUT STRUCTURE\nThe LLM must return a JSON object with exactly these fields:\n{\n  \"stressLoad\": \"Low | Moderate | High | Critical\",\n  \"why\": \"1–2 sentences referencing specific biometric signals\",\n  \"action\": \"One specific action tied to the user's actual schedule\"\n}\n\nNo additional fields. No nested objects. No arrays.\n\n## WORD COUNT\n- Total word count across all three fields must be under 60 words.\n- If the parsed response exceeds 60 words, truncate or regenerate — do not pass it to the frontend.\n\n## ACTION QUALITY\n- The action field must reference something specific from the user's calendar (e.g., a meeting name, a time block, a gap in the schedule).\n- Generic advice is NOT acceptable: \"Take a break\", \"Meditate\", \"Get more sleep\", \"Drink water\" — these must be rejected unless tied to a specific schedule context.\n- Only ONE action is allowed. If the LLM returns multiple suggestions, use only the first.\n\n## FALLBACK BEHAVIOR\n- If the LLM call fails (network error, timeout, API error), return a hardcoded fallback object — never throw or return null.\n- If JSON parsing fails, return the fallback object — never surface a parse error.\n- The fallback must be a realistic, pre-written response consistent with the mock biometric data.\n- Example fallback:\n  { stressLoad: \"Moderate\", why: \"Your HRV is slightly below baseline and you have back-to-back meetings this afternoon.\", action: \"Block 20 minutes before your 3pm meeting to decompress.\" }\n\n## PROMPT ENGINEERING\n- The system prompt must instruct the LLM to respond in JSON only — no prose, no markdown, no explanation.\n- The prompt must include the user's calendar events for today so the action can be schedule-specific.\n- The prompt must include the top 2–3 biometric signals driving the stress score.\n\n## WHAT TO FLAG\n- Any LLM call without a try/catch and fallback\n- Any response handling that doesn't validate the three required fields\n- Any prompt that doesn't include calendar context\n- Any code that passes raw LLM text (non-JSON) to the frontend"
+  }
+}

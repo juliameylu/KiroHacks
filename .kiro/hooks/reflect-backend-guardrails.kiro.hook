@@ -1,0 +1,16 @@
+{
+  "enabled": true,
+  "name": "Reflect Backend Guardrails",
+  "description": "Enforces deterministic stress scoring, always-return pipeline with mock fallbacks, fast execution, and no overengineering in the Reflect backend.",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "backend/src/**/*.js"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "A backend file in the Reflect stress copilot app was just edited. Verify it meets these backend guardrails:\n\n## STRESS SCORING\n- Must be a pure deterministic function: (signals) => { score, level, reasons }\n- No randomness, no ML, no model inference at runtime.\n- Score must be derived from weighted biometric + calendar inputs only.\n- levels must map to a fixed set: \"low\" | \"moderate\" | \"high\" | \"critical\"\n\n## PIPELINE RELIABILITY\n- The pipeline must ALWAYS return a valid result object — never throw to the caller.\n- Wrap every external API call (Oura, calendar, LLM) in try/catch with a mock fallback.\n- Fallback data must be realistic and consistent (not empty objects or nulls).\n- Total pipeline execution must complete in under 2 seconds.\n\n## ARCHITECTURE\n- Plain functions only. No classes unless absolutely required by a library.\n- No unnecessary middleware layers.\n- No auth, sessions, or user management of any kind.\n- No database. In-memory or JSON file cache only.\n- No retry logic beyond a single immediate fallback.\n\n## WHAT TO FLAG\nIf the edited file introduces any of the following, flag it and suggest a simpler alternative:\n- A new class or constructor function for logic that could be a plain function\n- An async pattern more complex than async/await with try/catch\n- Any import of an auth, ORM, or queue library\n- A function that can throw without a fallback\n- Execution paths that could take longer than 2 seconds"
+  }
+}
