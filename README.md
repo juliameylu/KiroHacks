@@ -184,3 +184,90 @@ Built at KiroHacks Cal Poly by a team focused on human-centered AI and proactive
 ## TL;DR
 
 Pulse turns passive health tracking into an intelligent, proactive system that understands your day and helps you navigate stress before it escalates.
+
+---
+
+## Running Locally
+
+### Prerequisites
+- Node.js 18+
+- Anthropic API key (for Claude stress assessment)
+- Oura PAT and Google Calendar credentials (optional — fixture/mock mode works without them)
+
+### Setup
+
+```bash
+# 1. Install all dependencies (root, backend, and frontend)
+npm install
+npm install --prefix backend
+npm install --prefix Frontend
+
+# 2. Set up backend environment variables
+cp backend/.env.example backend/.env
+# Fill in the values (see backend/.env.example for all keys)
+# Required for live API mode: ANTHROPIC_API_KEY, OURA_PAT, GOOGLE_CLIENT_ID,
+#   GOOGLE_CLIENT_SECRET, GOOGLE_REFRESH_TOKEN
+# Set MOCK_MODE=true to run entirely on fixture data (no live APIs needed)
+
+# 3. Start both backend and frontend
+npm run dev
+# Backend runs on http://localhost:3001 (default)
+# Frontend runs on http://localhost:5173 (default)
+```
+
+Or start individually:
+```bash
+npm run dev:backend    # backend only
+npm run dev:frontend   # frontend only
+```
+
+### Key Environment Variables
+
+See `backend/.env.example` for the full list. To run in demo/mock mode without live APIs:
+```
+MOCK_MODE=true
+PORT=3001
+FRONTEND_ORIGIN=http://localhost:5173
+```
+
+---
+
+## Current Project State
+
+This project was built as a **one-day hackathon prototype** at KiroHacks Cal Poly.
+
+| Component | Status |
+|-----------|--------|
+| Backend pipeline (pipeline.js) | Working — biometric signal derivation + Claude assessment |
+| LLM fallbacks (JSON validation, retry, rule-based) | Working |
+| Fixture/mock mode (no live APIs needed) | Working |
+| Google Calendar token refresh | Working (401 retry) |
+| Frontend demo shell (StressCopilotAllViews.tsx) | Working — polished animated UI |
+| API-bound Dashboard (Dashboard.tsx + useAssessment.ts) | Exists in repo but not mounted in current App.tsx |
+| SMS/Twilio notifications | Not implemented on current `main` |
+| Oura live integration | Fixture fallback mode; live PAT required for real data |
+
+The active frontend renders a polished demo experience. The full API-wired version (Dashboard + useAssessment hook) is in the repo but requires re-mounting in `App.tsx`.
+
+---
+
+## Technical Architecture
+
+```
+Frontend (React/TypeScript/Vite)
+        |
+    Express backend (backend/src/server.js)
+        |
+  ┌────────────────────────────────────────────┐
+  │  GET /api/assessment                       │
+  │    → ouraClient.js  (biometric signals)    │
+  │    → calendarClient.js (schedule context) │
+  │    → signals.js (deterministic scoring)   │
+  │    → llmClient.js (Claude JSON output)    │
+  │    → cache.js (file-backed persistence)   │
+  └────────────────────────────────────────────┘
+```
+
+**Pre-LLM signal derivation:** `signals.js` computes deterministic `physiological_strain` and `schedule_load` scores before calling Claude. The LLM receives structured inputs and must return strict JSON (`stress_level`, drivers, recommendation, summary). Malformed responses retry once then fall back to a rule-based assessment.
+
+**Kiro specs/hooks** (`.kiro/` directory): The repo includes Kiro specs, task decomposition, steering principles, and hooks that encode LLM output guardrails, mock-data consistency, demo reliability rules, and anti-overengineering constraints — demonstrating AI-assisted development discipline alongside the app itself.
